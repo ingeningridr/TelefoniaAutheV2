@@ -2,7 +2,7 @@ package initial.src.main.java.com.example.springboot.telefonia.Interface;
 
 //import javax.telefonia.MessagingException;
 
-import com.example.springboot.telefonia.dto.CallsBody;
+import initial.src.main.java.com.example.springboot.telefonia.dto.CallsBody;
 
 public interface CallsPort {
 

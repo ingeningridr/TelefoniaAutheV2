@@ -1,17 +1,17 @@
-package com.example.springboot.telefonia.service;
+package initial.src.main.java.com.example.springboot.telefonia.service;
 
-import com.example.springboot.telefonia.Interface.HandlingTimePort;
-import com.example.springboot.telefonia.dto.HandlingTimeBody;
-import com.example.springboot.telefonia.response.HandlingTime;
 
+import initial.src.main.java.com.example.springboot.telefonia.Interface.HandlingTimePort;
+import initial.src.main.java.com.example.springboot.telefonia.controller.HandlingTimeBody;
+import initial.src.main.java.com.example.springboot.telefonia.response.HandlingTime;
+import org.junit.platform.commons.logging.LoggerFactory;
 import java.util.Date;
 import java.util.logging.Logger;
 
-import static com.example.springboot.telefonia.service.CallsService.LoggerFactory;
 
 public abstract class HandlingTimeService<JavaHandlingTimeSender, average_talk_time_in> implements HandlingTimePort {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(String.valueOf(HandlingTimeService.class));
+    private static final Logger LOGGER = (Logger) LoggerFactory.getLogger(HandlingTimeService.class);
 
     //@Autowired
     private JavaHandlingTimeSender sender;

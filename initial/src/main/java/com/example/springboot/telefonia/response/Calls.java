@@ -1,4 +1,4 @@
-package com.example.springboot.telefonia.response;
+package initial.src.main.java.com.example.springboot.telefonia.response;
 
 //import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -16,7 +16,7 @@ public class Calls {
 
     public Calls(int idCalls, Date dIni, Date dFin, String service, String start_name, String service_name, double phone_number){
 
-        this.setIdCalls(idCalls);
+         this.setIdCalls(idCalls);
          this.setDIni(dIni);
          this.setDFin(dFin);
          this.setService(service);
@@ -25,7 +25,7 @@ public class Calls {
          this.setPhone_number(phone_number);
 
     }
-    public void setCalls(Calls calls) {
+    public void setCalls() {
 
     }
     public Calls() {

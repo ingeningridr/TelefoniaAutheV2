@@ -1,4 +1,4 @@
-package com.example.springboot.telefonia.controller;
+package initial.src.main.java.com.example.springboot.telefonia.controller;
 
 import org.springframework.web.bind.annotation.*;
 
@@ -18,7 +18,7 @@ public class SurveyRest {
     @RequestParam("service") String Service,
     @RequestParam("start_name") String Start_name,
     @RequestParam("service_name") String Service_name,
-    @RequestParam("phone_number") int Phone_number,
+    @RequestParam("phone_number") double Phone_number,
     @RequestParam("fcr") String Fcr,
     @RequestParam("nps") String Nps,
     @RequestParam("cs") int Cs,

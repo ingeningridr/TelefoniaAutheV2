@@ -1,4 +1,4 @@
-package com.example.springboot.telefonia.response;
+package initial.src.main.java.com.example.springboot.telefonia.response;
 
 //import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -11,7 +11,7 @@ public class QueueTime {
     private Date dIni;
     private Date dFin;
     private String service;
-    private String start_name;
+    private Date start_time;
     private String service_name;
     private double num_calls_queued;
     private String total_time_queued;
@@ -21,7 +21,7 @@ public class QueueTime {
     private String answer_time_queued;
     private double num_calls_queued_answered;
 
-    public QueueTime(int idQT, Date dIni, Date dFin, String service, String start_name, String service_name, double num_calls_queued, String total_time_queued,
+    public QueueTime(int idQT, Date dIni, Date dFin, String service, Date start_time, String service_name, double num_calls_queued, String total_time_queued,
                      String average_time_queued, String abandonment_time_queued, double num_calls_queued_abandoned, String answer_time_queued,
                      String answer_time_queue, double num_calls_queued_answered) {
 
@@ -29,7 +29,7 @@ public class QueueTime {
         this.dIni = dIni;
         this.dFin = dFin;
         this.service = service;
-        this.start_name = String.valueOf(start_name);
+        this.start_time = start_time;
         this.service_name = service_name;
         this.num_calls_queued = num_calls_queued;
         this.total_time_queued = String.valueOf(total_time_queued);
@@ -83,14 +83,14 @@ public class QueueTime {
         this.service = service;
     }
 
-    public String getStart_name() {
+    public Date getStart_time() {
 
-        return start_name;
+        return start_time;
     }
 
-    public void setStart_name(String start_name) {
+    public void setStart_time(Date start_time) {
 
-        this.start_name = start_name;
+        this.start_time = start_time;
     }
 
     public String getService_name() {
@@ -170,11 +170,10 @@ public class QueueTime {
     }
     @Override
     public String toString() {
-     return "QueueTime[idQT=" + idQT + "dIni=" + dIni + "dFin =" + dFin + "service= " + service + "start_name=" + start_name + ",service_name=" + service_name + ", num_calls_queued=" + num_calls_queued + ", " +
+     return "QueueTime[idQT=" + idQT + "dIni=" + dIni + "dFin =" + dFin + "service= " + service + "start_name=" + start_time + ",service_name=" + service_name + ", num_calls_queued=" + num_calls_queued + ", " +
       "total_time_queued=" + total_time_queued + ", average_time_queued=" + average_time_queued +", abandonment_time_queued=" + abandonment_time_queued +"," +
       "num_calls_queued_abandoned=" + num_calls_queued_abandoned +",answer_time_queued=" + answer_time_queued +",num_calls_queued_answered=" + num_calls_queued_answered +"]";
     }
-
 
 }
 

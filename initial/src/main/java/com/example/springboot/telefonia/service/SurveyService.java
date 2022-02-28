@@ -1,19 +1,17 @@
-package com.example.springboot.telefonia.service;
+package initial.src.main.java.com.example.springboot.telefonia.service;
 
 
-import com.example.springboot.telefonia.Interface.SurveyPort;
-import com.example.springboot.telefonia.dto.SurveyBody;
-import com.example.springboot.telefonia.response.Survey;
-
-
+import initial.src.main.java.com.example.springboot.telefonia.Interface.SurveyPort;
+import initial.src.main.java.com.example.springboot.telefonia.controller.SurveyBody;
+import initial.src.main.java.com.example.springboot.telefonia.response.Survey;
+import org.junit.platform.commons.logging.LoggerFactory;
 import java.util.Date;
 import java.util.logging.Logger;
 
-import static com.example.springboot.telefonia.service.CallsService.LoggerFactory;
 
 public abstract class SurveyService implements SurveyPort {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(String.valueOf(SurveyService.class));
+    private static final Logger LOGGER = (Logger) LoggerFactory.getLogger(SurveyService.class);
 
     //@Autowired
     //private JavaSurveySender sender;

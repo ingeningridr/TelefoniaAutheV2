@@ -1,12 +1,12 @@
-package com.example.springboot.telefonia.dto;
+package initial.src.main.java.com.example.springboot.telefonia.controller;
 
-import com.example.springboot.telefonia.dto.HandlingTimeBody;
+
 
 import java.util.Date;
 
 public class HandlingTimeBody {
 
-    private int idHT;
+    private static int idHT;
     private Date dIni;
     private Date dFin;
     private String service;

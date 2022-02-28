@@ -1,4 +1,4 @@
-package com.example.springboot.telefonia.controller;
+package initial.src.main.java.com.example.springboot.telefonia.controller;
 
 import org.springframework.web.bind.annotation.*;
 
@@ -16,7 +16,7 @@ public class QueueTimeRest {
     @RequestParam("dFin") Date DFin,
     @RequestParam("service") String Service,
     @RequestParam("queueTime") Date QueueTime,
-    @RequestParam("start_name") String Start_name,
+    @RequestParam("start_name") String Start_time,
     @RequestParam("service_name") String Service_name,
     @RequestParam("num_calls_queued") double Num_calls_queued,
     @RequestParam("total_time_queued") Date Total_time_queued,
@@ -27,7 +27,7 @@ public class QueueTimeRest {
     @RequestParam("num_calls_queued_answered") double Num_calls_queued_answered) {
 
         return "idQT " + IdQT + "dIni " +DIni+ "dFin " + DFin + "service" +Service+ "queueTime" + QueueTime +
-        "start_name " +Start_name+ "Service_name " + Service_name + "num_calls_queued" +Num_calls_queued+ "total_time_queued" + Total_time_queued +
+        "start_name " +Start_time+ "Service_name " + Service_name + "num_calls_queued" +Num_calls_queued+ "total_time_queued" + Total_time_queued +
         "average_time_queued " +Average_time_queued+ "abandonment_time_queued " + Abandonment_time_queued + "num_calls_queued_abandoned" +Num_calls_queued_abandoned+
         "answer_time_queued" + Answer_time_queued +"num_calls_queued_answered" + Num_calls_queued_answered +"";
 

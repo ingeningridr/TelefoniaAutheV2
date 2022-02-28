@@ -1,4 +1,4 @@
-package com.example.springboot.telefonia.dto;
+package initial.src.main.java.com.example.springboot.telefonia.dto;
 
 //import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -12,9 +12,9 @@ public class CallsBody {
     private String service;
     private String start_name;
     private String service_name;
-    private int phone_number;
+    private double phone_number;
 
-    public CallsBody(int idCalls,Date dIni, Date dFin, String service, String start_name, String service_name,  int phone_number) {
+    public CallsBody(int idCalls,Date dIni, Date dFin, String service, String start_name, String service_name,  double phone_number) {
 
         this.idCalls = idCalls;
         this.dIni = dIni;
@@ -88,16 +88,16 @@ public class CallsBody {
         this.service_name = service_name;
     }
 
-    public int getPhone_number() {
+    public double getPhone_number() {
 
         return phone_number;
     }
 
-    public void setPhone_number(int phone_number) {
+    public void setPhone_number(double phone_number) {
 
         this.phone_number = phone_number;
     }
 
-
-
+    public void setIdLC(int idLC) {
+    }
 }

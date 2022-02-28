@@ -1,8 +1,8 @@
-package com.example.springboot.telefonia.Interface;
+package initial.src.main.java.com.example.springboot.telefonia.Interface;
 
 //import javax.telefonia.MessagingException;
 
-import com.example.springboot.telefonia.dto.QueueTimeBody;
+import initial.src.main.java.com.example.springboot.telefonia.controller.QueueTimeBody;
 
 public interface QueueTimePort {
 

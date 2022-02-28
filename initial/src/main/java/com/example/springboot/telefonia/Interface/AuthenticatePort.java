@@ -1,4 +1,4 @@
-package com.example.springboot.telefonia.Interface;
+package initial.src.main.java.com.example.springboot.telefonia.Interface;
 
 //import javax.telefonia.MessagingException;
 

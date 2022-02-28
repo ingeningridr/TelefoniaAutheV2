@@ -1,4 +1,4 @@
-package com.example.springboot.telefonia.dto;
+package initial.src.main.java.com.example.springboot.telefonia.controller;
 
 //import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -11,7 +11,7 @@ public class QueueTimeBody {
     private Date dIni;
     private Date dFin;
     private String service;
-    private String start_name;
+    private Date start_time;
     private String service_name;
     private double num_calls_queued;
     private Date total_time_queued;
@@ -21,7 +21,7 @@ public class QueueTimeBody {
     private Date answer_time_queued;
     private double num_calls_queued_answered;
 
-    public QueueTimeBody(int idQT, Date dIni, Date dFin, String service, String start_name, String service_name, double num_calls_queued, Date total_time_queued,
+    public QueueTimeBody(int idQT, Date dIni, Date dFin, String service, Date start_time, String service_name, double num_calls_queued, Date total_time_queued,
     Date average_time_queued, Date abandonment_time_queued, double num_calls_queued_abandoned, Date answer_time_queued,
     Date answer_time_queue, double num_calls_queued_answered){
 
@@ -29,7 +29,7 @@ public class QueueTimeBody {
         this.dIni = dIni;
         this.dFin = dFin;
         this.service = service;
-        this.start_name = String.valueOf(start_name);
+        this.start_time = (start_time);
         this.service_name = service_name;
         this.num_calls_queued = num_calls_queued;
         this.total_time_queued = total_time_queued;
@@ -80,14 +80,14 @@ public class QueueTimeBody {
         this.service = service;
     }
 
-    public String getStart_name() {
+    public Date getStart_time() {
 
-        return start_name;
+        return start_time;
     }
 
-    public void setStart_name(String start_name) {
+    public void setStart_name(Date start_time) {
 
-        this.start_name = start_name;
+        this.start_time = start_time;
     }
 
     public String getService_name() {

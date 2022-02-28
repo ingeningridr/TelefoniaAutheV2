@@ -1,4 +1,4 @@
-package com.example.springboot.telefonia.controller;
+package initial.src.main.java.com.example.springboot.telefonia.controller;
 
 
 import initial.src.main.java.com.example.springboot.telefonia.Interface.CallsPort;
@@ -24,7 +24,7 @@ public class CallsRest {
     @RequestParam("service") String Service,
     @RequestParam("start_name") String Start_name,
     @RequestParam("service_name") String Service_name,
-    @RequestParam("phone_number") int Phone_number) {
+    @RequestParam("phone_number") double Phone_number) {
 
 
         return "idCalls " + IdCalls + "dini " + DIni + "dfin " + DFin + "service" +Service+ "start_name" + Start_name + "service_name" + Service_name + "phone_number" + Phone_number +"";

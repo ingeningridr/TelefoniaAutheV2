@@ -1,8 +1,8 @@
-package com.example.springboot.telefonia.Interface;
+package initial.src.main.java.com.example.springboot.telefonia.Interface;
 
 //import javax.calls.MessagingException;
 
-import com.example.springboot.telefonia.dto.SurveyBody;
+import initial.src.main.java.com.example.springboot.telefonia.controller.SurveyBody;
 
 public interface SurveyPort {
 

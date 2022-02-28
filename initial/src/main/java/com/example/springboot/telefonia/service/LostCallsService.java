@@ -1,18 +1,16 @@
-package com.example.springboot.telefonia.service;
+package initial.src.main.java.com.example.springboot.telefonia.service;
 
-import com.example.springboot.telefonia.Interface.LostCallsPort;
-import com.example.springboot.telefonia.dto.CallsBody;
-import com.example.springboot.telefonia.dto.LostCallsBody;
-
-
+import initial.src.main.java.com.example.springboot.telefonia.Interface.LostCallsPort;
+import initial.src.main.java.com.example.springboot.telefonia.controller.LostCallsBody;
+import initial.src.main.java.com.example.springboot.telefonia.dto.CallsBody;
+import org.junit.platform.commons.logging.LoggerFactory;
 import java.util.Date;
 import java.util.logging.Logger;
 
-import static com.example.springboot.telefonia.service.CallsService.LoggerFactory;
 
 public abstract class LostCallsService<JavaLostCallsSender> implements LostCallsPort {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(String.valueOf(LostCallsService.class));
+    private static final Logger LOGGER = (Logger) LoggerFactory.getLogger(LostCallsService.class);
 
     //@Autowired
     private JavaLostCallsSender sender;

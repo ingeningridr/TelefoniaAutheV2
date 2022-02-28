@@ -1,8 +1,8 @@
-package com.example.springboot.telefonia.Interface;
+package initial.src.main.java.com.example.springboot.telefonia.Interface;
 
 //import javax.telefonia.MessagingException;
 
-import com.example.springboot.telefonia.dto.HandlingTimeBody;
+import initial.src.main.java.com.example.springboot.telefonia.controller.HandlingTimeBody;
 
 public interface HandlingTimePort {
 

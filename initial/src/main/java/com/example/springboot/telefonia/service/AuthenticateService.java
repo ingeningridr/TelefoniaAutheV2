@@ -1,14 +1,17 @@
-package com.example.springboot.telefonia.service;
+package initial.src.main.java.com.example.springboot.telefonia.service;
 
-import com.example.springboot.telefonia.Interface.AuthenticatePort;
+
+import initial.src.main.java.com.example.springboot.telefonia.Interface.AuthenticatePort;
 import initial.src.main.java.com.example.springboot.telefonia.dto.AuthenticateBody;
+import org.junit.platform.commons.logging.LoggerFactory;
+
 import java.util.logging.Logger;
-import static com.example.springboot.telefonia.service.CallsService.LoggerFactory;
+
 
 
 public abstract class AuthenticateService<JavaAuthenticateSender> implements AuthenticatePort {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(String.valueOf(AuthenticateService.class));
+    private static final Logger LOGGER = (Logger) LoggerFactory.getLogger(AuthenticateService.class);
 
    // @Autowired
     private JavaAuthenticateSender sender;
@@ -19,7 +22,7 @@ public abstract class AuthenticateService<JavaAuthenticateSender> implements Aut
         LOGGER.info("AuthenticateBody: " + authenticateBody.toString());
             String pathToAttachment;
         return sendAuthenticate(
-                    authenticateBody.getIdAthenticate(),
+                    authenticateBody.getIdAuthenticate(),
                     authenticateBody.getKeyA(),
                     authenticateBody.getToken());
         }
@@ -33,7 +36,7 @@ public abstract class AuthenticateService<JavaAuthenticateSender> implements Aut
         boolean send = false;
         try {
             AuthenticateBody helper = null;
-            helper.setIdAthenticate(String.valueOf(idAuthenticate));
+            helper.setIdAuthenticate(idAuthenticate);
             helper.setKeyA(keyA);
             helper.setToken(token);
             send = true;

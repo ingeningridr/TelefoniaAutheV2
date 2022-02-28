@@ -1,17 +1,16 @@
-package com.example.springboot.telefonia.service;
+package initial.src.main.java.com.example.springboot.telefonia.service;
 
-import com.example.springboot.telefonia.Interface.QueueTimePort;
-import com.example.springboot.telefonia.dto.QueueTimeBody;
-import com.example.springboot.telefonia.response.QueueTime;
-
+import initial.src.main.java.com.example.springboot.telefonia.Interface.QueueTimePort;
+import initial.src.main.java.com.example.springboot.telefonia.controller.QueueTimeBody;
+import initial.src.main.java.com.example.springboot.telefonia.response.QueueTime;
+import org.junit.platform.commons.logging.LoggerFactory;
 import java.util.Date;
 import java.util.logging.Logger;
 
-import static com.example.springboot.telefonia.service.CallsService.LoggerFactory;
 
 public abstract class QueueTimeService<JavaQueueTimeSender> implements QueueTimePort {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(String.valueOf(QueueTimeService.class));
+    private static final Logger LOGGER = (Logger) LoggerFactory.getLogger(QueueTimeService.class);
 
     //@Autowired
     private JavaQueueTimeSender sender;
@@ -26,7 +25,7 @@ public abstract class QueueTimeService<JavaQueueTimeSender> implements QueueTime
                 queueTimeBody.getDIni(),
                 queueTimeBody.getDFin(),
                 queueTimeBody.getService(),
-                queueTimeBody.getStart_name(),
+                queueTimeBody.getStart_time(),
                 queueTimeBody.getService_name(),
                 queueTimeBody.getNum_calls_queued(),
                 queueTimeBody.getTotal_time_queued(),
@@ -37,7 +36,7 @@ public abstract class QueueTimeService<JavaQueueTimeSender> implements QueueTime
                 queueTimeBody.getNum_calls_queued_answered());
     }
 
-    private boolean sendQueueTimeTool(int idQT, Date dIni, Date dFin, String service, String start_name, String service_name, double num_calls_queued,
+    private boolean sendQueueTimeTool(int idQT, Date dIni, Date dFin, String service, Date start_time, String service_name, double num_calls_queued,
                                       Date total_time_queued, Date average_time_queued, Date abandonment_time_queued,
                                       double num_calls_queued_abandoned, Date answer_time_queued, double num_calls_queued_answered){
 
@@ -48,7 +47,7 @@ public abstract class QueueTimeService<JavaQueueTimeSender> implements QueueTime
             helper.setDIni(dIni);
             helper.setDFin(dFin);
             helper.setService(service);
-            helper.setStart_name(start_name);
+            helper.setStart_time(start_time);
             helper.setService_name(service_name);
             helper.setNum_calls_queued(num_calls_queued);
             helper.setTotal_time_queued(String.valueOf(total_time_queued));

@@ -16,6 +16,7 @@ public class QueueTime implements Serializable {
     @GeneratedValue(strategy= javax.persistence.GenerationType.AUTO)
     @Column(name = "idQT")
     private int idQT;
+    @Column(name = "idQT")
     private Date dIni;
     @Column(name = "dFin")
     private Date dFin;
@@ -23,8 +24,8 @@ public class QueueTime implements Serializable {
     private String service;
     @Column(name = "queueTime")
     private Date queueTime;
-    @Column(name = "start_name")
-    private String start_name;
+    @Column(name = "start_time")
+    private Date start_time;
     @Column(name = "service_name")
     private String service_name;
     @Column(name = "num_calls_queued")
@@ -47,7 +48,7 @@ public class QueueTime implements Serializable {
 protected QueueTime(){
 
 }
-    public void LostCalls(int idQT, Date dIni, Date dFin, String service,Date queueTime, String start_name, String service_name, double num_calls_queued,
+    public void LostCalls(int idQT, Date dIni, Date dFin, String service,Date queueTime, Date start_time, String service_name, double num_calls_queued,
     Date total_time_queued, Date average_time_queued, Date abandonment_time_queued, double num_calls_queued_abandoned,
     Date answer_time_queued, double num_calls_queued_answered){
 
@@ -56,7 +57,7 @@ protected QueueTime(){
         this.dFin = dFin;
         this.service = service;
         this.queueTime = queueTime;
-        this.start_name = start_name;
+        this.start_time = start_time;
         this.service_name = service_name;
         this.num_calls_queued = num_calls_queued;
         this.total_time_queued = total_time_queued;
@@ -125,14 +126,14 @@ protected QueueTime(){
         this.queueTime = queueTime;
     }
 
-    public String getStart_name() {
+    public Date getStart_time() {
 
-        return start_name;
+        return start_time;
     }
 
-    public void setStart_name(String start_name) {
+    public void setStart_name(Date start_time) {
 
-        this.start_name = start_name;
+        this.start_time = start_time;
     }
 
     public String getService_name() {
