@@ -8,9 +8,9 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.List;
 import java.util.Optional;
 
-public class QADRepository implements CrudRepository<Authenticate, Long> {
+public class QADRepository implements CrudRepository<CustomResponse, Long> {
 
-    @Query("select new com.example.springboot.dto.CustomResponse (Authenticate, Calls, HandlingTime, LostCalls, QueueTime, Survey," +
+    @Query("select new initial.src.main.java.com.example.springboot.telefonia.dto (Authenticate, Calls, HandlingTime, LostCalls, QueueTime, Survey," +
             "    a.idAuthenticate," +
             "    a.keyA," +
             "    a.token," +
@@ -143,7 +143,7 @@ public class QADRepository implements CrudRepository<Authenticate, Long> {
             "    h.HT 'idHandlingTime' AND+, " +
             "    l.LostCalls 'idLC'  AND+, " +
             "    q.idQueueTime idLC' AND, " +
-            "    s.idS idSurvey' = Authenticate")
+            "    s.idS idSurvey' = CustomResponse")
 
     List<CustomResponse> getInfoFromQAD() {
 
@@ -152,17 +152,17 @@ public class QADRepository implements CrudRepository<Authenticate, Long> {
 
 
     @Override
-    public <S extends Authenticate> S save(S entity) {
+    public <S extends CustomResponse> S save(S entity) {
         return null;
     }
 
     @Override
-    public <S extends Authenticate> Iterable<S> saveAll(Iterable<S> entities) {
+    public <S extends CustomResponse> Iterable<S> saveAll(Iterable<S> entities) {
         return null;
     }
 
     @Override
-    public Optional<Authenticate> findById(Long aLong) {
+    public Optional<CustomResponse> findById(Long aLong) {
         return Optional.empty();
     }
 
@@ -172,12 +172,12 @@ public class QADRepository implements CrudRepository<Authenticate, Long> {
     }
 
     @Override
-    public Iterable<Authenticate> findAll() {
+    public Iterable<CustomResponse> findAll() {
         return null;
     }
 
     @Override
-    public Iterable<Authenticate> findAllById(Iterable<Long> longs) {
+    public Iterable<CustomResponse> findAllById(Iterable<Long> longs) {
         return null;
     }
 
@@ -192,7 +192,7 @@ public class QADRepository implements CrudRepository<Authenticate, Long> {
     }
 
     @Override
-    public void delete(Authenticate entity) {
+    public void delete(CustomResponse entity) {
 
     }
 
@@ -202,7 +202,7 @@ public class QADRepository implements CrudRepository<Authenticate, Long> {
     }
 
     @Override
-    public void deleteAll(Iterable<? extends Authenticate> entities) {
+    public void deleteAll(Iterable<? extends CustomResponse> entities) {
 
     }
 

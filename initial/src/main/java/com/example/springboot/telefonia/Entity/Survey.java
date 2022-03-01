@@ -3,11 +3,13 @@ package initial.src.main.java.com.example.springboot.telefonia.Entity;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Date;
 
+@Entity
 public class Survey implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -53,7 +55,6 @@ public class Survey implements Serializable {
     @Column(name = "p9")
     private String p9;
 
-
     protected Survey(){
 
     }
@@ -81,7 +82,6 @@ public class Survey implements Serializable {
         this.p7 = p7;
         this.p8 = p8;
         this.p9 = p9;
-
 
     }
     @Override

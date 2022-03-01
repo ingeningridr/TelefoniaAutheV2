@@ -1,7 +1,7 @@
-package com.example.springboot.telefonia;
+package initial.src.main.java.com.example.springboot.telefonia.controller;
 
-//import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
-//import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import java.util.Arrays;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,27 +12,25 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.boot.SpringApplication;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
+import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 
 import javax.persistence.Entity;
 
+@SpringBootApplication
+@EnableJpaAuditing
 
-@Configuration
-@SpringBootApplication(scanBasePackages= "com.example")
-@EnableAutoConfiguration
-@EntityScan(basePackages="com.example.springboot.repository")
-@Entity(name = "com.example.springboot.entity")
 public class Application {
 
 	public static void main(String[] args) {
-		ApplicationContext ctx = SpringApplication.run(Application.class, args);
-
-		System.out.println("Let's inspect the beans provided by Spring Boot:");
-
-		String[] beanNames = ctx.getBeanDefinitionNames();
-		Arrays.sort(beanNames);
-		for (String beanName : beanNames) {
-			System.out.println(beanName);
-		}
+		SpringApplication.run(Application.class, args);
 	}
 
+	@Bean(name = "entityManagerFactory")
+	public LocalSessionFactoryBean sessionFactory() {
+		LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
+
+		return sessionFactory;
+	}
 }

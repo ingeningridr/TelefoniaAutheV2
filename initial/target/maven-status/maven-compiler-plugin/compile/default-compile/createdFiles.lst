@@ -29,6 +29,7 @@ initial\src\main\java\com\example\springboot\telefonia\Entity\QueueTime.class
 com\example\springboot\telefonia\wsdl\mapping\WmInsertUpdateResponse.class
 com\example\springboot\telefonia\wsdl\mapping\WmObtenerResumenArticulosAENAResponse.class
 com\example\springboot\telefonia\wsdl\mapping\WmIngresoLogSAP.class
+initial\src\main\java\com\example\springboot\telefonia\controller\Application.class
 com\example\springboot\telefonia\wsdl\mapping\WmReporte.class
 com\example\springboot\telefonia\wsdl\mapping\WmConsultaProcesoNumMesa.class
 com\example\springboot\telefonia\wsdl\mapping\WmModificacionProductoCentroCosto.class
@@ -53,7 +54,6 @@ initial\src\main\java\com\example\springboot\telefonia\controller\LostCallsBody.
 initial\src\main\java\com\example\springboot\telefonia\service\LostCallsService.class
 initial\src\main\java\com\example\springboot\telefonia\controller\QueueTimeBody.class
 initial\src\main\java\com\example\springboot\telefonia\Interface\CallsPort.class
-com\example\springboot\telefonia\Application.class
 com\example\springboot\telefonia\wsdl\mapping\WmCambioClave2Response$WmCambioClave2Result.class
 initial\src\main\java\com\example\springboot\telefonia\controller\CallsRest.class
 com\example\springboot\telefonia\wsdl\mapping\WmEnvioTransaccionesExpInsumosResponse.class
@@ -72,7 +72,6 @@ com\example\springboot\telefonia\wsdl\mapping\WmEnvioTransaccionesCompletarTrx.c
 com\example\springboot\telefonia\wsdl\mapping\WmConsultaProcesoNumMesaResponse.class
 initial\src\main\java\com\example\springboot\telefonia\Entity\Authenticate.class
 com\example\springboot\telefonia\wsdl\mapping\WmInsertUpdateResponse$WmInsertUpdateResult.class
-com\example\springboot\telefonia\Entity\Pt_mstr.class
 initial\src\main\java\com\example\springboot\telefonia\controller\SurveyBody.class
 initial\src\main\java\com\example\springboot\telefonia\Entity\Survey.class
 com\example\springboot\telefonia\wsdl\request\Test.class
@@ -91,7 +90,6 @@ com\example\springboot\telefonia\wsdl\mapping\WmObtenerResumenAENAResponse.class
 com\example\springboot\telefonia\wsdl\request\ItemReferencia.class
 com\example\springboot\telefonia\wsdl\mapping\WmObtenerListadoArchivosAENA.class
 com\example\springboot\telefonia\wsdl\mapping\WmPbObtenerAlmacenEnvioResponse.class
-com\example\springboot\telefonia\Entity\Tr_hist.class
 initial\src\main\java\com\example\springboot\telefonia\Entity\Calls.class
 com\example\springboot\telefonia\wsdl\mapping\WmInsertUpdateTrxResponse.class
 com\example\springboot\telefonia\wsdl\mapping\WmObtenerResumenAnualAENA.class
@@ -104,7 +102,6 @@ com\example\springboot\telefonia\wsdl\mapping\WmCambioClaveResponse.class
 initial\src\main\java\com\example\springboot\telefonia\controller\AuthenticateRest.class
 initial\src\main\java\com\example\springboot\telefonia\dto\CustomResponse.class
 com\example\springboot\telefonia\wsdl\mapping\WmEnvioTransaccionesCompletarTrxResponse.class
-com\example\springboot\telefonia\Ld_det.class
 com\example\springboot\telefonia\wsdl\mapping\WmLoginCanales.class
 com\example\springboot\telefonia\wsdl\mapping\WmModificacionProductoCentroCostoResponse$WmModificacionProductoCentroCostoResult.class
 com\example\springboot\telefonia\wsdl\request\Encabezado.class

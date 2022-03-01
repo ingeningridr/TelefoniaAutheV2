@@ -1,13 +1,15 @@
 package initial.src.main.java.com.example.springboot.telefonia.Entity;
 
+import org.springframework.context.annotation.Primary;
 import org.springframework.web.bind.annotation.RequestParam;
-
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Date;
 
+@Entity
 public class Authenticate implements Serializable {
 
    private static final long serialVersionUID = 1L;
