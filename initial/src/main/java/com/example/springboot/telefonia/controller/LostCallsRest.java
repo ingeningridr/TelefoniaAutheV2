@@ -1,5 +1,8 @@
 package initial.src.main.java.com.example.springboot.telefonia.controller;
 
+import initial.src.main.java.com.example.springboot.telefonia.repository.QADRepository;
+import initial.src.main.java.com.example.springboot.telefonia.response.LostCalls;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
@@ -8,9 +11,14 @@ import java.util.Date;
 @RequestMapping(value = "/report")
 public class LostCallsRest {
 
+    @Autowired
+    private LostCalls lostCalls;
+
+    @Autowired
+    private QADRepository QADRepository;
+
     @PostMapping(value = "/lostCalls")
     public String sendLostCallsRest(
-
     @RequestParam("idLC") int IdLC,
     @RequestParam("dini") Date DIni,
     @RequestParam("dfin") Date DFin,

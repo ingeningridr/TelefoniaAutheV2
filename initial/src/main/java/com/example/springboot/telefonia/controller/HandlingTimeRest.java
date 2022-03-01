@@ -1,11 +1,25 @@
 package initial.src.main.java.com.example.springboot.telefonia.controller;
 
-
+import initial.src.main.java.com.example.springboot.telefonia.Interface.CallsPort;
+import initial.src.main.java.com.example.springboot.telefonia.repository.QADRepository;
+import initial.src.main.java.com.example.springboot.telefonia.response.HandlingTime;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Date;
+
+@RestController
+@RequestMapping(value = "/report")
 public class HandlingTimeRest {
+
+    @Autowired
+    private HandlingTime handlingTime;
+
+    @Autowired
+    private QADRepository QADRepository;
 
     @PostMapping(value = "/report/handlingTime")
     public String sendHandlingTimeRest(

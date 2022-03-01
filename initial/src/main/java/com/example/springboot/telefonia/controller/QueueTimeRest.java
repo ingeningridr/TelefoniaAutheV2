@@ -1,5 +1,8 @@
 package initial.src.main.java.com.example.springboot.telefonia.controller;
 
+import initial.src.main.java.com.example.springboot.telefonia.repository.QADRepository;
+import initial.src.main.java.com.example.springboot.telefonia.response.QueueTime;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
@@ -7,6 +10,12 @@ import java.util.Date;
 @RestController
 @RequestMapping(value = "/report")
 public class QueueTimeRest {
+
+    @Autowired
+    private QueueTime queueTime;
+
+    @Autowired
+    private QADRepository QADRepository;
 
     @PostMapping(value = "/queueTime")
     @ResponseBody
