@@ -8,7 +8,7 @@ public class HandlingTime {
     private Date dIni;
     private Date dFin;
     private String service;
-    private String start_name;
+    private Date start_time;
     private String service_name;
     private double num_calls_answered;
     private Date handling_time;
@@ -16,13 +16,13 @@ public class HandlingTime {
     private Date talk_time_in;
     private Date average_talk_time_in;
 
-    public HandlingTime(int idHT, Date dIni, Date dFin, String service, String start_name, String service_name, double num_calls_answered, Date handling_time,
+    public HandlingTime(int idHT, Date dIni, Date dFin, String service, Date start_time, String service_name, double num_calls_answered, Date handling_time,
                         Date average_handling_time, Date talk_time_in, Date average_talk_time_in ){
         this.idHT = idHT;
         this.dIni = dIni;
         this.dFin = dFin;
         this.service = service;
-        this.start_name = String.valueOf(start_name);
+        this.start_time = start_time;
         this.service_name = service_name;
         this.num_calls_answered = num_calls_answered;
         this.handling_time = handling_time;
@@ -40,23 +40,25 @@ public class HandlingTime {
 
 
     public int getIdHT() {
+
         return idHT;
     }
 
     public void setIdHT(int idHT) {
+
         this.idHT = idHT;
     }
 
-    public Date getDini(Date dini) {
+    public Date getDIni() {
 
-        return dini;
+        return dIni;
     }
     public void setDIni(Date dIni) {
 
         this.dIni = dIni;
     }
 
-    public Date getDFin(Date dFin) {
+    public Date getDFin() {
 
         return dFin;
     }
@@ -66,7 +68,7 @@ public class HandlingTime {
         this.dFin = dFin;
     }
 
-    public String getService(String service) {
+    public String getService() {
 
         return service;
     }
@@ -76,14 +78,14 @@ public class HandlingTime {
         this.service = service;
     }
 
-    public String getStart_name() {
+    public Date getStart_time() {
 
-        return start_name;
+        return start_time;
     }
 
-    public void setStart_name(String start_name) {
+        public void setStart_time(Date start_time) {
 
-        this.start_name = start_name;
+        this.start_time = start_time;
     }
 
     public String getService_name() {
@@ -154,8 +156,8 @@ public class HandlingTime {
 
     @Override
     public String toString() {
-        return "HandlingTime [idHT = " + idHT + "dIni=" + dIni + "dFin= " + dFin + "service= "+ service + "start_name=" + start_name + ",service_name=" + service_name + ", num_calls_answered=" + num_calls_answered + ", " +
-       "handling_time=" + handling_time + ", average_handling_time=" + average_handling_time +", talk_time_in=" + talk_time_in +",average_talk_time_in=" + average_talk_time_in +"]";
+        return "HandlingTime [idHT = " + getIdHT() + "dIni=" + getDIni() + "dFin= " + getDFin() + "service= "+ getService() + "start_time=" + getStart_time() + ",service_time=" + getService_name() + ", num_calls_answered=" + getNum_calls_answered() + ", " +
+       "handling_time=" + getHandling_time() + ", average_handling_time=" + getAverage_handling_time() +", talk_time_in=" + getTalk_time_in() +",average_talk_time_in=" + getAverage_talk_time_in() +"]";
     }
 
 

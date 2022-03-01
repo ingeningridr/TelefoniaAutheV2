@@ -10,29 +10,32 @@ public class LostCallsBody {
     private Date dIni;
     private Date dFin;
     private String service;
-    private String start_name;
+    private Date start_time;
     private String service_name;
     private double phone_number;
 
-    public LostCallsBody(int idLC, Date dIni, Date dFin, String service, String start_name, String service_name, double phone_number ){
+    public LostCallsBody(int idLC, Date dIni, Date dFin, String service, Date start_time, String service_name, double phone_number) {
 
         this.idLC = idLC;
         this.dIni = dIni;
         this.dFin = dFin;
         this.service = service;
-        this.start_name = String.valueOf(start_name);
+        this.start_time = start_time;
         this.service_name = service_name;
         this.phone_number = phone_number;
     }
+
     public void setLostCalls(LostCallsBody lostcalls) {
 
     }
 
     public int getIdLC() {
+
         return idLC;
     }
 
     public void setIdLC(int idLC) {
+
         this.idLC = idLC;
     }
 
@@ -56,7 +59,7 @@ public class LostCallsBody {
         this.dFin = dFin;
     }
 
-    public String  getService() {
+    public String getService() {
 
         return service;
     }
@@ -66,14 +69,14 @@ public class LostCallsBody {
         this.service = service;
     }
 
-    public String getStart_name() {
+    public Date getStart_time() {
 
-        return start_name;
+        return start_time;
     }
 
-    public void setStart_name(String start_name) {
+    public void setStart_time(Date start_time) {
 
-        this.start_name = start_name;
+        this.start_time = start_time;
     }
 
     public String getService_name() {
@@ -95,6 +98,5 @@ public class LostCallsBody {
 
         this.phone_number = phone_number;
     }
-
 
 }

@@ -25,7 +25,7 @@ public abstract class HandlingTimeService<JavaHandlingTimeSender, average_talk_t
                 handlingTimeBody.getDIni(),
                 handlingTimeBody.getDFin(),
                 handlingTimeBody.getService(),
-                handlingTimeBody.getStart_name(),
+                handlingTimeBody.getStart_time(),
                 handlingTimeBody.getService_name(),
                 handlingTimeBody.getNum_calls_answered(),
                 handlingTimeBody.getHandling_time(),
@@ -34,11 +34,11 @@ public abstract class HandlingTimeService<JavaHandlingTimeSender, average_talk_t
                 handlingTimeBody.getAverage_talk_time_in());
     }
 
-    private boolean sendHandlingTime(int idHT, Date dIni, Date dFin, String service, String start_name, String service_name, double num_calls_answered, Date handling_time, Date average_handling_time, Date talk_time_in, Date average_talk_time_in) {
+    private boolean sendHandlingTime(int idHT, Date dIni, Date dFin, String service, Date start_time, String service_name, double num_calls_answered, Date handling_time, Date average_handling_time, Date talk_time_in, Date average_talk_time_in) {
          return false;
     }
 
-    private boolean sendHandlingTimeTool(int idHT,Date dIni, Date dFin, String service, String start_name, String service_name, double num_calls_answered,
+    private boolean sendHandlingTimeTool(int idHT,Date dIni, Date dFin, String service, Date start_time, String service_name, double num_calls_answered,
                                          Date handling_time,Date average_handling_time,Date talk_time_in, Date average_talk_time_in ){
 
         boolean send = false;
@@ -49,7 +49,7 @@ public abstract class HandlingTimeService<JavaHandlingTimeSender, average_talk_t
             helper.setDIni(dIni);
             helper.setDFin(dFin);
             helper.setService(service);
-            helper.setStart_name(start_name);
+            helper.setStart_time(start_time);
             helper.setService_name(service_name);
             helper.setNum_calls_answered(num_calls_answered);
             helper.setHandling_time(handling_time);

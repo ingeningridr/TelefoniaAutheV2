@@ -22,12 +22,11 @@ public class CallsRest {
     @RequestParam("dini") Date DIni,
     @RequestParam("dfin") Date DFin,
     @RequestParam("service") String Service,
-    @RequestParam("start_name") String Start_name,
+    @RequestParam("start_time") Date start_time,
     @RequestParam("service_name") String Service_name,
     @RequestParam("phone_number") double Phone_number) {
 
-
-        return "idCalls " + IdCalls + "dini " + DIni + "dfin " + DFin + "service" +Service+ "start_name" + Start_name + "service_name" + Service_name + "phone_number" + Phone_number +"";
+        return "idCalls " + IdCalls + "dini " + DIni + "dfin " + DFin + "service" +Service+ "start_time" + start_time + "service_name" + Service_name + "phone_number" + Phone_number +"";
 
     }
 }

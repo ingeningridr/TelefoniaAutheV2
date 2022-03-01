@@ -10,17 +10,17 @@ public class CallsBody {
     private Date dIni;
     private Date dFin;
     private String service;
-    private String start_name;
+    private Date start_time;
     private String service_name;
     private double phone_number;
 
-    public CallsBody(int idCalls,Date dIni, Date dFin, String service, String start_name, String service_name,  double phone_number) {
+    public CallsBody(int idCalls,Date dIni, Date dFin, String service, Date start_time, String service_name,  double phone_number) {
 
         this.idCalls = idCalls;
         this.dIni = dIni;
         this.dFin = dFin;
         this.service = service;
-        this.start_name = start_name;
+        this.start_time = start_time;
         this.service_name = service_name;
         this.phone_number = phone_number;
     }
@@ -68,14 +68,14 @@ public class CallsBody {
         this.service = service;
     }
 
-    public String getStart_name() {
+    public Date getStart_time() {
 
-        return start_name;
+        return start_time;
     }
 
-    public void setStart_name(String start_name) {
+    public void setStart_time(Date start_time) {
 
-        this.start_name = start_name;
+        this.start_time = start_time;
     }
 
     public String getService_name() {

@@ -1,6 +1,6 @@
 package initial.src.main.java.com.example.springboot.telefonia.repository;
 
-import com.example.springboot.telefonia.dto.CustomResponse;
+import initial.src.main.java.com.example.springboot.telefonia.dto.CustomResponse;
 import initial.src.main.java.com.example.springboot.telefonia.Entity.Authenticate;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -18,14 +18,14 @@ public class QADRepository implements CrudRepository<Authenticate, Long> {
             "    c.dIini," +
             "    c.dFin," +
             "    c.service," +
-            "    c.start_name," +
+            "    c.start_time," +
             "    c.service_name," +
             "    c.phone_number," +
             "    h.idHT," +
             "    h.dIini," +
             "    h.dFin," +
             "    h.service," +
-            "    h.start_name," +
+            "    h.start_time," +
             "    h.service_name," +
             "    h.num_calls_answered," +
             "    h.handling_time," +
@@ -36,7 +36,7 @@ public class QADRepository implements CrudRepository<Authenticate, Long> {
             "    l.dIini," +
             "    l.dFin," +
             "    l.service," +
-            "    l.start_name," +
+            "    l.start_time," +
             "    l.service_name," +
             "    l.phone_number," +
             "    q.idQT," +
@@ -58,7 +58,7 @@ public class QADRepository implements CrudRepository<Authenticate, Long> {
             "    s.dFin," +
             "    s.service," +
             "    s.survey," +
-            "    s.start_name," +
+            "    s.start_time," +
             "    s.Service_name," +
             "    s.phone_number," +
             "    s.fcr," +
@@ -82,14 +82,14 @@ public class QADRepository implements CrudRepository<Authenticate, Long> {
             "    c.dIni = '1' AND " +
             "    c.dFin = '2022-02-24' AND " +
             "    c.service = '2022-02-24' AND " +
-            "    c.start_name = 'x' AND " +
+            "    c.start_time = 'x' AND " +
             "    c.service_name = 'x' AND " +
             "    c.phone_number= '3142776417' AND " +
             "    AND h.idHT  = '1'  AND" +
             "    h.dIini = '2022-02-24' AND " +
             "    h.dFin = '2022-02-24' AND " +
             "    h.service = 'x' AND " +
-            "    h.start_name = 'x' AND " +
+            "    h.start_time = 'x' AND " +
             "    h.service_name= 'x' AND " +
             "    h.num_calls_answered= '2' AND " +
             "    h.handling_time= '2022-02-24' AND " +
@@ -100,7 +100,7 @@ public class QADRepository implements CrudRepository<Authenticate, Long> {
             "    l.dIini= '2022-02-24' AND " +
             "    l.dFin= '2022-02-24' AND " +
             "    l.service= 'x' AND " +
-            "    l.start_name= 'x' AND " +
+            "    l.start_time= 'x' AND " +
             "    l.service_name= '1' AND " +
             "    l.phone_number= '3142776417' AND " +
             "    AND q.idQT = '1' AND " +
@@ -108,7 +108,7 @@ public class QADRepository implements CrudRepository<Authenticate, Long> {
             "    q.dFin = '2022-02-24' AND " +
             "    q.service = 'QueueT' AND " +
             "    q.queueTime = CURRENT_TIMESTAMP AND " +
-            "    q.start_name = 'x' AND " +
+            "    q.start_time = 'x' AND " +
             "    q.Service_name = 'x' AND " +
             "    q.num_calls_queued = '2' AND " +
             "    q.total_time_queued = '2022-02-24' AND " +
@@ -137,8 +137,14 @@ public class QADRepository implements CrudRepository<Authenticate, Long> {
             "    s.p7 = '0' AND " +
             "    s.p8 = '0' AND " +
             "    s.p9 = '0' AND " +
-            "    a.idAuthenticate > 0 AND " +
-            "    ORDER BY e.ld_qty_oh")
+            "    a.Authenticate > 0 AND " +
+            "    ORDER BY a.Authenticate 'idAuthenticate' AND+, " +
+            "    c.Calls 'idCalls' AND+, " +
+            "    h.HT 'idHandlingTime' AND+, " +
+            "    l.LostCalls 'idLC'  AND+, " +
+            "    q.idQueueTime idLC' AND, " +
+            "    s.idS idSurvey' = Authenticate")
+
     List<CustomResponse> getInfoFromQAD() {
 
         return null;

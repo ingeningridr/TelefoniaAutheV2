@@ -23,9 +23,9 @@ public class Calls implements Serializable {
     private Date dFin;
     @Column(name = "service")
     private String service;
-    @Column(name = "start_name")
-    private String start_name;
-    @Column(name = "service_name")
+    @Column(name = "start_time")
+    private Date start_time;
+    @Column(name = "start_time")
     private String service_name;
     @Column(name = "phone_number")
     private double phone_number;
@@ -36,12 +36,12 @@ public class Calls implements Serializable {
 
     }
 
-    public void Calls(int idCalls, Date dIni, Date dFin, String service, String  start_name, String service_name, double phone_number ){
+    public void Calls(int idCalls, Date dIni, Date dFin, String service, Date start_time, String service_name, double phone_number ){
         this.idCalls = idCalls;
         this.dIni = dIni;
         this.dFin = dFin;
         this.service = service;
-        this.start_name = start_name;
+        this.start_time = start_time;
         this.service_name = service_name;
         this.phone_number = phone_number;
 
@@ -50,7 +50,7 @@ public class Calls implements Serializable {
     @Override
     //This toString method print outs the Ld_det properties.
     public String toString() {
-        return String.format("Calls[idCalls=%d, dIni ='%s', dFin ='%s', service ='%s', start_name ='%s', service_name ='%s', phone_number ='%s']");
+        return String.format("Calls[idCalls=%d, dIni ='%s', dFin ='%s', service ='%s', start_time ='%s', service_name ='%s', phone_number ='%s']");
     }
 
     public int getIdCalls() {
@@ -93,14 +93,14 @@ public class Calls implements Serializable {
         this.service = service;
     }
 
-    public String getStart_name() {
+    public Date getStart_time() {
 
-        return start_name;
+        return start_time;
     }
 
-    public void setStart_name(String start_name) {
+    public void setStart_time(Date start_time) {
 
-        this.start_name = start_name;
+        this.start_time = start_time;
     }
 
     public String getService_name() {

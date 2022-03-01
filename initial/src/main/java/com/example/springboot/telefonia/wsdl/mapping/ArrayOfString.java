@@ -1,12 +1,4 @@
-//
-// Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.0 
-// Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
-// Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2022.01.19 a las 06:36:41 PM COT 
-//
-
-
-package com.example.springboot.telefonia.wsdl.mapping;
+/**package initial.src.main.java.com.example.springboot.telefonia.wsdl.mapping;
 
 import com.fasterxml.jackson.xml.annotate.JacksonXmlProperty;
 
@@ -36,7 +28,7 @@ import javax.xml.bind.annotation.XmlType;
  * </pre>
  * 
  * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ArrayOfString", propOrder = {
     "string"
@@ -68,7 +60,7 @@ public class ArrayOfString {
      * {@link String }
      * 
      * 
-     */
+
     public List<String> getString() {
         if (string == null) {
             string = new ArrayList<String>();
@@ -77,3 +69,4 @@ public class ArrayOfString {
     }
 
 }
+*/

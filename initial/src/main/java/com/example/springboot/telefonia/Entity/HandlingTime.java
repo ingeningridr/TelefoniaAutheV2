@@ -22,8 +22,8 @@ public class HandlingTime implements Serializable {
     private Date dFin;
     @Column(name = "service")
     private String service;
-    @Column(name = "start_name")
-    private String start_name;
+    @Column(name = "start_time")
+    private Date start_time;
     @Column(name = "service_name")
     private String service_name;
     @Column(name = "num_calls_answered")
@@ -41,14 +41,14 @@ public class HandlingTime implements Serializable {
     protected HandlingTime(){
 
     }
-    public void HandlingTime(int idHT, Date dIni, Date dFin, String service, String start_name, String  service_name, double num_calls_answered,
+    public void HandlingTime(int idHT, Date dIni, Date dFin, String service, Date start_time, String  service_name, double num_calls_answered,
     Date handling_time, Date average_handling_time, Date talk_time_in, Date average_talk_time_in ){
 
        this.idHT = idHT;
        this.dIni = dIni;
        this.dFin = dFin;
        this.service = service;
-       this.start_name = start_name;
+       this.start_time = start_time;
        this.service_name = service_name;
        this.num_calls_answered = num_calls_answered;
        this.handling_time = handling_time;
@@ -104,14 +104,14 @@ public class HandlingTime implements Serializable {
         this.service = service;
     }
 
-    public String getStart_name() {
+    public Date getStart_time() {
 
-        return start_name;
+        return start_time;
     }
 
-    public void setStart_name(String start_name) {
+    public void setStart_name(Date start_time) {
 
-        this.start_name = start_name;
+        this.start_time = start_time;
     }
 
     public String getService_name() {

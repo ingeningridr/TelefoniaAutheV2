@@ -25,17 +25,17 @@ public abstract class LostCallsService<JavaLostCallsSender> implements LostCalls
                 lostCallsBody.getDIni(),
                 lostCallsBody.getDFin(),
                 lostCallsBody.getService(),
-                lostCallsBody.getStart_name(),
+                lostCallsBody.getStart_time(),
                 lostCallsBody.getService_name(),
                 lostCallsBody.getPhone_number());
     }
 
-    private boolean sendLostCalls(int idLC, Date dIni, Date dFin, String service, String start_name, String service_name, double phone_number) {
+    private boolean sendLostCalls(int idLC, Date dIni, Date dFin, String service, Date start_time, String service_name, double phone_number) {
 
         return false;
     }
 
-    private boolean sendLostCallsTool(int idLC, Date dIni, Date dFin, String service, String start_name, String service_name, double phone_number){
+    private boolean sendLostCallsTool(int idLC, Date dIni, Date dFin, String service, Date start_time, String service_name, double phone_number){
 
         boolean send = false;
         try {
@@ -44,7 +44,7 @@ public abstract class LostCallsService<JavaLostCallsSender> implements LostCalls
             helper.setDIni(dIni);
             helper.setDFin(dFin);
             helper.setService(service);
-            helper.setStart_name(start_name);
+            helper.setStart_time(start_time);
             helper.setService_name(service_name);
             helper.setPhone_number((int)phone_number);
             send = true;

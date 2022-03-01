@@ -10,17 +10,17 @@ public class LostCalls {
     private Date dIni;
     private Date dFin;
     private String service;
-    private String start_name;
+    private Date start_time;
     private String service_name;
     private double phone_number;
 
-    public LostCalls(int idLC, Date dIni, Date dFin, String Service, String start_name, String service_name, double phone_number ){
+    public LostCalls(int idLC, Date dIni, Date dFin, String Service, Date start_time, String service_name, double phone_number ){
 
         this.idLC = idLC;
         this.dIni = dIni;
         this.dFin = dFin;
         this.service = service;
-        this.start_name = String.valueOf(start_name);
+        this.start_time = start_time;
         this.service_name = service_name;
         this.phone_number = phone_number;
     }
@@ -30,7 +30,7 @@ public class LostCalls {
 
     }
 
-    public int getLC() {
+    public int getIdLC() {
 
         return idLC;
     }
@@ -40,7 +40,7 @@ public class LostCalls {
         this.idLC= idLC;
     }
 
-    public Date getDini() {
+    public Date getDIni() {
 
         return dIni;
     }
@@ -69,14 +69,14 @@ public class LostCalls {
         this.service = service;
     }
 
-    public String getStart_name() {
+    public Date getStart_time() {
 
-        return start_name;
+        return start_time;
     }
 
-    public void setStart_name(String start_name) {
+    public void setStart_time(Date start_time) {
 
-        this.start_name = start_name;
+        this.start_time = start_time;
     }
 
     public String getService_name() {
@@ -100,7 +100,7 @@ public class LostCalls {
     }
     @Override
     public String toString() {
-        return "LostCalls[idLC"+ idLC + "dIni=" + dIni + "dFin=" + dFin + "service=" + service + "start_name=" + start_name + ",service_name=" + service_name + ",phone_number=" + phone_number + "]";
+        return "LostCalls[idLC"+ getIdLC() + "dIni=" + getDIni() + "dFin=" + getDFin() + "service=" + getService() + "start_name=" + getStart_time() + ",start_time=" + getService_name() + ",phone_number=" + getPhone_number() + "]";
     }
 
 

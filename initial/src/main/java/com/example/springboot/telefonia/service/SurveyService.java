@@ -29,7 +29,7 @@ public abstract class SurveyService implements SurveyPort {
                 surveyBody.getDIni(),
                 surveyBody.getDFin(),
                 surveyBody.getService(),
-                surveyBody.getStart_name(),
+                surveyBody.getStart_time(),
                 surveyBody.getService_name(),
                 surveyBody.getPhone_number(),
                 surveyBody.getFcr(),
@@ -46,7 +46,7 @@ public abstract class SurveyService implements SurveyPort {
                 surveyBody.getP9());
 
     }
-    private boolean sendSurveyTool(int idS, Date dIni, Date dFin, String service, String start_name, String service_name,
+    private boolean sendSurveyTool(int idS, Date dIni, Date dFin, String service, Date start_time, String service_name,
     double phone_number, String fcr, String nps, int cs, String p1, String p2, String p3, String p4, String p5, String p6,
      String p7, String p8, String p9) {
 
@@ -57,7 +57,7 @@ public abstract class SurveyService implements SurveyPort {
             helper.setDIni(dIni);
             helper.setDFin(dFin);
             helper.setService(service);
-            helper.setStart_name(start_name);
+            helper.setStart_time(start_time);
             helper.setService_name(service_name);
             helper.setPhone_number(phone_number);
             helper.setFcr(fcr);

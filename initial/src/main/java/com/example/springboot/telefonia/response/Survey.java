@@ -10,7 +10,7 @@ public class Survey {
     private Date dIni;
     private Date dFin;
     private String service;
-    private String start_name;
+    private Date start_time;
     private String service_name;
     private double phone_number;
     private String fcr;
@@ -26,17 +26,17 @@ public class Survey {
     private String p8;
     private String p9;
 
-    public Survey(int idS, Date dIni, Date dFin, String service, String start_name, String service_name, double phone_number, String fcr, String nps, int cs,
-      String p1, String p2, String p3, String p4, String p5, String p6, String p7, String p8, String p9){
+    public Survey(int idS, Date dIni, Date dFin, String service, Date start_time, String service_name, double phone_number, String fcr, String nps, int cs,
+                  String p1, String p2, String p3, String p4, String p5, String p6, String p7, String p8, String p9) {
 
         this.idS = idS;
         this.dIni = dIni;
         this.dFin = dFin;
         this.service = service;
-        this.start_name = String.valueOf(start_name);
+        this.start_time = start_time;
         this.service_name = service_name;
-        this. phone_number = phone_number;
-        this.fcr = fcr ;
+        this.phone_number = phone_number;
+        this.fcr = fcr;
         this.nps = nps;
         this.cs = cs;
         this.p1 = p1;
@@ -101,14 +101,14 @@ public class Survey {
         this.service = this.service;
     }
 
-    public String getStart_name() {
+    public Date getStart_time() {
 
-        return start_name;
+        return start_time;
     }
 
-    public void setStart_name(String start_name) {
+    public void setStart_time(Date start_time) {
 
-        this.start_name = start_name;
+        this.start_time = start_time;
     }
 
     public String getService_name() {
@@ -160,6 +160,7 @@ public class Survey {
 
         this.cs = cs;
     }
+
     public String getP1() {
 
         return p1;
@@ -169,6 +170,7 @@ public class Survey {
 
         this.p1 = p1;
     }
+
     public String getP2() {
 
         return p2;
@@ -178,6 +180,7 @@ public class Survey {
 
         this.p2 = p2;
     }
+
     public String getP3() {
 
         return p3;
@@ -187,6 +190,7 @@ public class Survey {
 
         this.p3 = p3;
     }
+
     public String getP4() {
 
         return p4;
@@ -194,8 +198,9 @@ public class Survey {
 
     public void setP4(String p4) {
 
-        this.p4= p4;
+        this.p4 = p4;
     }
+
     public String getP5() {
 
         return p5;
@@ -205,6 +210,7 @@ public class Survey {
 
         this.p5 = p5;
     }
+
     public String getP6() {
 
         return p6;
@@ -214,6 +220,7 @@ public class Survey {
 
         this.p6 = p6;
     }
+
     public String getP7() {
 
         return p7;
@@ -223,6 +230,7 @@ public class Survey {
 
         this.p7 = p7;
     }
+
     public String getP8() {
 
         return p8;
@@ -232,6 +240,7 @@ public class Survey {
 
         this.p8 = p8;
     }
+
     public String getP9() {
 
         return p9;
@@ -241,12 +250,12 @@ public class Survey {
 
         this.p9 = p9;
     }
+
     @Override
     public String toString() {
-        return "Survey[idS=" + idS +"dIni=" + dIni + "dFin= " + dFin + "service= " + service + "start_name=" + start_name + ",service_name=" + service_name + ", phone_number=" + phone_number + ", " +
-        "FCR=" + fcr + ", NPS=" + nps +", CS=" + cs +",p1=" + p1 +",p2=" + p2 +",p3=" + p3 +",p1=4" + p4 +"" + ",p5=" + p5 +",p6=" + p6 +",p1=7" + p7 +",p1=8" + p8 +",p9=" + p9 +"]";
+        return "Survey[idS=" + getIdS() + "dIni=" + getDIni() + "dFin= " + getDFin() + "service= " + getService() + "start_time=" + getStart_time() + ",service_name=" + getService_name() + ", phone_number=" + getPhone_number() + ", " +
+                "FCR=" + getFcr() + ", NPS=" + getNps() + ", CS=" + getCs() + ",p1=" + getP1() + ",p2=" + getP2() + ",p3=" + getP3() + ",p1=4" + getP4() + "" + ",p5=" + getP5() + ",p6=" + getP6() + ",p1=7" + getP7() + ",p1=8" + getP8() + ",p9=" + getP9() + "]";
     }
-
 
 }
 

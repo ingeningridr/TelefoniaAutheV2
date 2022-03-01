@@ -47,14 +47,16 @@ public class QueueTime {
     }
 
     public int getIdQT() {
+
         return idQT;
     }
 
     public void setIdQT(int idQT) {
+
         this.idQT = idQT;
     }
 
-    public Date getDini() {
+    public Date getDIni() {
 
         return dIni;
     }
@@ -114,7 +116,7 @@ public class QueueTime {
         this.num_calls_queued = num_calls_queued;
     }
 
-    public String getTotal_time_queued(String s) {
+    public String getTotal_time_queued() {
 
         return total_time_queued;
     }
@@ -170,9 +172,9 @@ public class QueueTime {
     }
     @Override
     public String toString() {
-     return "QueueTime[idQT=" + idQT + "dIni=" + dIni + "dFin =" + dFin + "service= " + service + "start_name=" + start_time + ",service_name=" + service_name + ", num_calls_queued=" + num_calls_queued + ", " +
-      "total_time_queued=" + total_time_queued + ", average_time_queued=" + average_time_queued +", abandonment_time_queued=" + abandonment_time_queued +"," +
-      "num_calls_queued_abandoned=" + num_calls_queued_abandoned +",answer_time_queued=" + answer_time_queued +",num_calls_queued_answered=" + num_calls_queued_answered +"]";
+     return "QueueTime[idQT=" + getIdQT() + "dIni=" + getDIni() + "dFin =" + getDFin() + "service= " + getService() + "start_time=" + getStart_time() + ",service_name=" + getService_name() + ", num_calls_queued=" + getNum_calls_queued() + ", " +
+      "total_time_queued=" + getTotal_time_queued() + "average_time_queued=" + getAverage_time_queued() +", abandonment_time_queued=" + getAbandonment_time_queued() +"," +
+      "num_calls_queued_abandoned=" + getNum_calls_queued_abandoned() +",answer_time_queued=" + getAnswer_time_queued()+",num_calls_queued_answered=" + getNum_calls_queued_answered() +"]";
     }
 
 }

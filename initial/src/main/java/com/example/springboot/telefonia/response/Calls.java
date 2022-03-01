@@ -10,17 +10,17 @@ public class Calls {
     private Date dIni;
     private Date dFin;
     private String service;
-    private String start_name;
+    private Date start_time;
     private String service_name;
     private double phone_number;
 
-    public Calls(int idCalls, Date dIni, Date dFin, String service, String start_name, String service_name, double phone_number){
+    public Calls(int idCalls, Date dIni, Date dFin, String service, Date start_time, String service_name, double phone_number){
 
          this.setIdCalls(idCalls);
          this.setDIni(dIni);
          this.setDFin(dFin);
          this.setService(service);
-         this.setStart_name(start_name);
+         this.setStart_time(start_time);
          this.setService_name(service_name);
          this.setPhone_number(phone_number);
 
@@ -71,14 +71,14 @@ public class Calls {
         this.service = service;
 
     }
-    public String getStart_name() {
+    public Date getStart_time() {
 
-        return start_name;
+        return start_time;
     }
 
-    public void setStart_name(String start_name) {
+    public void setStart_time(Date start_time) {
 
-        this.start_name = start_name;
+        this.start_time = start_time;
     }
 
     public String getService_name() {
@@ -102,8 +102,7 @@ public class Calls {
     }
     @Override
     public String toString() {
-        return "Calls[idCalls=" + getIdCalls() +"dIni="+ getDIni() + "dFin="+ getDFin() + "service=" + getService() + "start_name=" + start_name + ",service_name=" + service_name + ",phone_number=" + phone_number + "]";
+        return "Calls[idCalls=" + getIdCalls() +"dIni="+ getDIni() + "dFin="+ getDFin() + "service=" + getService() + "start_time=" +  getStart_time()  + ",service_name=" + getService_name() + ",phone_number=" + getPhone_number ()+ "]";
     }
-
 
 }
