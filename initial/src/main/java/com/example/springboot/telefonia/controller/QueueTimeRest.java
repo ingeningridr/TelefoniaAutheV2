@@ -7,16 +7,16 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 
+import com.example.springboot.telefonia.repository.QueueRepository;
+
 @RestController
 @RequestMapping(value = "/report")
 public class QueueTimeRest {
 
-    @Autowired
-    private QueueTime queueTime;
 
     @Autowired
-    private QADRepository QADRepository;
-
+    private QueueRepository queueRepository;
+    
     @PostMapping(value = "/queueTime")
     @ResponseBody
     public String sendQueueTimeRest(

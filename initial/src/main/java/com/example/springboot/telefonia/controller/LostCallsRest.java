@@ -7,15 +7,14 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 
+import com.example.springboot.telefonia.repository.LostCallsRepository;
+
 @RestController
 @RequestMapping(value = "/report")
 public class LostCallsRest {
 
     @Autowired
-    private LostCalls lostCalls;
-
-    @Autowired
-    private QADRepository QADRepository;
+    private LostCallsRepository lostCallsRepository;
 
     @PostMapping(value = "/lostCalls")
     public String sendLostCallsRest(

@@ -1,4 +1,4 @@
-package initial.src.main.java.com.example.springboot.telefonia.Entity;
+package com.example.springboot.telefonia.Entity;
 
 import org.springframework.context.annotation.Primary;
 import org.springframework.web.bind.annotation.RequestParam;

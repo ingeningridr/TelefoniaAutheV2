@@ -10,15 +10,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.Date;
 
+import com.example.springboot.telefonia.repository.CallsRepository;
+
 @RestController
 @RequestMapping(value = "/report")
 public class CallsRest {
 
     @Autowired
-    private CallsPort callsPort;
-
-    @Autowired
-    private QADRepository QADRepository;
+    private CallsRepository callsRepository;
 
     @PostMapping(value = "/calls")
     public String sendCallsRest(

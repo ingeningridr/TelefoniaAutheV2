@@ -8,15 +8,14 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 
+import com.example.springboot.telefonia.repository.SurveyRepository;
+
 @RestController
 @RequestMapping(value = "/report")
 public class SurveyRest {
 
     @Autowired
-    private Survey survey;
-
-    @Autowired
-    private QADRepository QADRepository;
+    private SurveyRepository surveyRepository;
 
     @PostMapping(value = "/survey")
     @ResponseBody

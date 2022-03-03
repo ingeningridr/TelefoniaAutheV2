@@ -9,17 +9,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.springboot.telefonia.repository.HandlingRepository;
+
+
 import java.util.Date;
 
 @RestController
 @RequestMapping(value = "/report")
 public class HandlingTimeRest {
 
-    @Autowired
-    private HandlingTime handlingTime;
-
-    @Autowired
-    private QADRepository QADRepository;
+  @Autowired
+  private HandlingRepository handlingRepository;
 
     @PostMapping(value = "/report/handlingTime")
     public String sendHandlingTimeRest(
