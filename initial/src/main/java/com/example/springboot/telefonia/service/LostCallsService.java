@@ -1,56 +1,119 @@
-package initial.src.main.java.com.example.springboot.telefonia.service;
+package com.example.springboot.telefonia.service;
 
-import initial.src.main.java.com.example.springboot.telefonia.Interface.LostCallsPort;
-import initial.src.main.java.com.example.springboot.telefonia.controller.LostCallsBody;
-import initial.src.main.java.com.example.springboot.telefonia.dto.CallsBody;
-import org.junit.platform.commons.logging.LoggerFactory;
+import com.example.springboot.telefonia.dto.CallsBody;
+import com.example.springboot.telefonia.utils.Constantes;
+
 import java.util.Date;
-import java.util.logging.Logger;
 
+import java.util.HashMap;
+import java.util.Map;
 
-public abstract class LostCallsService<JavaLostCallsSender> implements LostCallsPort {
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-    private static final Logger LOGGER = (Logger) LoggerFactory.getLogger(LostCallsService.class);
+import org.springframework.beans.factory.annotation.Autowired;
 
-    //@Autowired
-    private JavaLostCallsSender sender;
+import com.example.springboot.telefonia.repository.CallsRepository;
 
+import org.springframework.http.*;
+import org.springframework.web.client.RestTemplate;
 
-    @Override
-    public boolean sendLostCalls(LostCallsBody lostCallsBody) throws Exception {
-        LOGGER.info("LostCallsBody: " + lostCallsBody.toString());
-        String pathToAttachment;
-        return sendLostCalls(
-                lostCallsBody.getIdLC(),
-                lostCallsBody.getDIni(),
-                lostCallsBody.getDFin(),
-                lostCallsBody.getService(),
-                lostCallsBody.getStart_time(),
-                lostCallsBody.getService_name(),
-                lostCallsBody.getPhone_number());
+import com.sun.net.httpserver.HttpContext;
+import org.apache.http.impl.client.DefaultRedirectStrategy;
+import org.apache.http.client.HttpClient;
+import org.apache.http.HttpResponse;
+import org.springframework.http.*;
+import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
+import org.apache.http.impl.client.HttpClientBuilder;
+import org.apache.http.impl.client.LaxRedirectStrategy;
+
+import com.example.springboot.telefonia.repository.*;
+
+import com.example.springboot.telefonia.Entity.LostCalls;
+
+import org.json.*;
+import org.slf4j.LoggerFactory;
+@Component
+@Service
+public class LostCallsService {
+
+    @Autowired
+    private LostCallsRepository lostCallsRepository;
+    
+    public LostCallsService(){
+        
     }
 
-    private boolean sendLostCalls(int idLC, Date dIni, Date dFin, String service, Date start_time, String service_name, double phone_number) {
+    org.slf4j.Logger logger = LoggerFactory.getLogger(LostCallsService.class); 
 
-        return false;
-    }
+    public void sendLostCalls() throws Exception {
 
-    private boolean sendLostCallsTool(int idLC, Date dIni, Date dFin, String service, Date start_time, String service_name, double phone_number){
+        JSONArray response = new JSONArray(this.dummyLostCalls());        
+        
+        for(int i = 0; i < response.length(); i++) 
+        {
+            JSONObject lostCalls = (JSONObject) response.get(i); 
+            LostCalls lostCallsBody = new LostCalls();
 
-        boolean send = false;
-        try {
-            CallsBody helper = null;
-            helper.setIdLC(idLC);
-            helper.setDIni(dIni);
-            helper.setDFin(dFin);
-            helper.setService(service);
-            helper.setStart_time(start_time);
-            helper.setService_name(service_name);
-            helper.setPhone_number((int)phone_number);
-            send = true;
-        } catch (Exception e) {
-            System.out.println("Se presento un error: {}");
+            lostCallsBody.setStart_name(lostCalls.get("start_time").toString());
+            lostCallsBody.setService_name(lostCalls.get("service_name").toString());
+            lostCallsBody.setPhone_number(Double.parseDouble(lostCalls.get("phone_number").toString()));
+
+            this.lostCallsRepository.save(lostCallsBody);
+
         }
-        return send;
+        
+
+    }
+
+    private String getLostCallsFromContainer(String fini, String ffin) throws Exception {
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+
+        Map<String, String> params = new HashMap<>();
+        params.put("fIni", fini);
+        params.put("fFin", ffin);
+
+        RestTemplate template = new RestTemplate();
+        String url = Constantes.URL;
+
+        HttpEntity<Void> requestEntity = new HttpEntity<>(headers);
+
+        return template.exchange(
+                url, HttpMethod.GET, requestEntity, String.class, params).getBody();
+    }
+
+    private String dummyLostCalls(){
+        return "["+
+        ""+
+        "	{"+
+        "		\"start_time\": \"2020-08.12 11:56:21\","+
+        "		\"service_name\": \"Entrante Yale\","+
+        "		\"phone_number\": \"23334234234\""+
+        "	},{"+
+        "		\"start_time\": \"2020-08.12 11:56:21\","+
+        "		\"service_name\": \"Entrante Yale\","+
+        "		\"phone_number\": \"23334234234\""+
+        "	},{"+
+        "		\"start_time\": \"2020-08.12 11:56:21\","+
+        "		\"service_name\": \"Entrante Yale\","+
+        "		\"phone_number\": \"23334234234\""+
+        "	},{"+
+        "		\"start_time\": \"2020-08.12 11:56:21\","+
+        "		\"service_name\": \"Entrante Yale\","+
+        "		\"phone_number\": \"23334234234\""+
+        "	},{"+
+        "		\"start_time\": \"2020-08.12 11:56:21\","+
+        "		\"service_name\": \"Entrante Yale\","+
+        "		\"phone_number\": \"23334234234\""+
+        "	},{"+
+        "		\"start_time\": \"2020-08.12 11:56:21\","+
+        "		\"service_name\": \"Entrante Yale\","+
+        "		\"phone_number\": \"23334234234\""+
+        "	}"+
+        ""+
+        "]";
+            
+        
     }
 }

@@ -1,4 +1,4 @@
-package initial.src.main.java.com.example.springboot.telefonia.controller;
+package com.example.springboot.telefonia.dto;
 
 //import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -12,9 +12,9 @@ public class LostCallsBody {
     private String service;
     private Date start_time;
     private String service_name;
-    private double phone_number;
+    private String phone_number;
 
-    public LostCallsBody(int idLC, Date dIni, Date dFin, String service, Date start_time, String service_name, double phone_number) {
+    public LostCallsBody(int idLC, Date dIni, Date dFin, String service, Date start_time, String service_name, String phone_number) {
 
         this.idLC = idLC;
         this.dIni = dIni;
@@ -89,12 +89,12 @@ public class LostCallsBody {
         this.service_name = service_name;
     }
 
-    public double getPhone_number() {
+    public String getPhone_number() {
 
         return phone_number;
     }
 
-    public void setPhone_number(double phone_number) {
+    public void setPhone_number(String phone_number) {
 
         this.phone_number = phone_number;
     }

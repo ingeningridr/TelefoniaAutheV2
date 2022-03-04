@@ -1,4 +1,4 @@
-package initial.src.main.java.com.example.springboot.telefonia.dto;
+package com.example.springboot.telefonia.dto;
 
 public class AuthenticateBody {
     private int idAuthenticate;

@@ -6,4 +6,4 @@
 //
 
 @javax.xml.bind.annotation.XmlSchema(namespace = "http://tempuri.org/", elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED)
-package initial.src.main.java.com.example.springboot.telefonia.wsdl.mapping;
+package com.example.springboot.telefonia.wsdl.mapping;

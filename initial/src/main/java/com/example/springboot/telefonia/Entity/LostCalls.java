@@ -1,4 +1,4 @@
-package initial.src.main.java.com.example.springboot.telefonia.Entity;
+package com.example.springboot.telefonia.Entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,15 +12,14 @@ public class LostCalls implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private Object GenerationType;
     @Id
     @GeneratedValue(strategy= javax.persistence.GenerationType.AUTO)
     @Column(name = "idLC")
     private int idLC;
     @Column(name = "dIni")
-    private Date dIni;
+    private String dIni;
     @Column(name = "dFin")
-    private Date dFin;
+    private String dFin;
     @Column(name = "service")
     private String service;
     @Column(name = "lostCalls")
@@ -33,105 +32,82 @@ public class LostCalls implements Serializable {
     private double phone_number;
 
 
-    protected  LostCalls(){
+    public  LostCalls(){
 
     }
-    public void LostCalls(int idLC,Date dIni, Date dFin, String service,String lostCalls, String start_name, String service_name, double phone_number){
 
+    public LostCalls(int idLC, String dIni, String dFin, String service, String lostCalls, String start_name, String service_name, double phone_number) {
         this.idLC = idLC;
         this.dIni = dIni;
         this.dFin = dFin;
         this.service = service;
-        this.idLC = idLC;
         this.lostCalls = lostCalls;
         this.start_name = start_name;
         this.service_name = service_name;
         this.phone_number = phone_number;
-
-    }
-
-    @Override
-    //This toString method print outs the Ld_det properties.
-    public String toString() {
-        return String.format("LostCalls[idLC=%d, dIni ='%s', dFin ='%s', service ='%s',lostCalls='%s', start_name ='%s', service_name ='%s', phone_number ='%s']");
     }
 
     public int getIdLC() {
-
         return idLC;
     }
 
     public void setIdLC(int idLC) {
-
         this.idLC = idLC;
     }
-    public Date getdIni() {
 
+    public String getdIni() {
         return dIni;
     }
 
-    public void setdIni(Date dIni) {
-
+    public void setdIni(String dIni) {
         this.dIni = dIni;
     }
 
-    public Date getdFin() {
-
+    public String getdFin() {
         return dFin;
     }
 
-    public void setdFin(Date dFin) {
-
+    public void setdFin(String dFin) {
         this.dFin = dFin;
     }
 
     public String getService() {
-
         return service;
     }
 
     public void setService(String service) {
-
         this.service = service;
     }
-    public String getLostCalls() {
 
+    public String getLostCalls() {
         return lostCalls;
     }
 
     public void setLostCalls(String lostCalls) {
-
         this.lostCalls = lostCalls;
     }
 
     public String getStart_name() {
-
         return start_name;
     }
 
     public void setStart_name(String start_name) {
-
         this.start_name = start_name;
     }
 
     public String getService_name() {
-
         return service_name;
     }
 
     public void setService_name(String service_name) {
-
         this.service_name = service_name;
     }
 
     public double getPhone_number() {
-
         return phone_number;
     }
 
     public void setPhone_number(double phone_number) {
-
         this.phone_number = phone_number;
     }
-
 }

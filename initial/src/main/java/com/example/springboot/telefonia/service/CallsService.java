@@ -1,57 +1,103 @@
-package initial.src.main.java.com.example.springboot.telefonia.service;
+package com.example.springboot.telefonia.service;
+
+import com.example.springboot.telefonia.Entity.Calls;
+import com.example.springboot.telefonia.utils.Constantes;
 
 
-import initial.src.main.java.com.example.springboot.telefonia.Interface.CallsPort;
-import initial.src.main.java.com.example.springboot.telefonia.dto.CallsBody;
-import initial.src.main.java.com.example.springboot.telefonia.response.Calls;
+import java.util.HashMap;
+import java.util.Map;
 
-import java.util.Date;
-import java.util.logging.Logger;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-public abstract class CallsService<JavaCallsSender> implements CallsPort {
+import org.springframework.beans.factory.annotation.Autowired;
 
-    public static Logger LoggerFactory;
-    private static final Logger LOGGER = LoggerFactory.getLogger(String.valueOf(CallsService.class));
+import com.example.springboot.telefonia.repository.CallsRepository;
 
-        //@Autowired
-        private JavaCallsSender sender;
+import org.springframework.http.*;
+import org.springframework.web.client.RestTemplate;
 
-        @Override
-        public boolean sendCalls(CallsBody callsBody) throws Exception {
-            LOGGER.info("CallsBody: " + callsBody.toString());
-            String pathToAttachment;
-            return sendCalls(
-                    callsBody.getIdCalls(),
-                    callsBody.getDIni(),
-                    callsBody.getDFin(),
-                    callsBody.getService(),
-                    callsBody.getStart_time(),
-                    callsBody.getService_name(),
-                    callsBody.getPhone_number());
-        }
+import org.json.*;
+import org.slf4j.LoggerFactory;
 
-    private boolean sendCalls(int idCalls, Date dIni, Date dFin, String service, Date start_time, String service_name,double phone_number) {
+@Component
+@Service
+public class CallsService  {
 
-            return false;
+    @Autowired
+    private CallsRepository callsRepository;
+
+    public CallsService(){
+        
     }
 
-    private boolean sendCallsTool(int idCalls, Date dIni, Date dFin, String service, Date start_time, String service_name, double phone_number){
+    org.slf4j.Logger logger = LoggerFactory.getLogger(CallsService.class); 
 
-            boolean send = false;
-            try {
-                Calls helper = null;
-                helper.setIdCalls(idCalls);
-                helper.setDIni(dIni);
-                helper.setDFin(dFin);
-                helper.setService(service);
-                helper.setStart_time(start_time);
-                helper.setService_name(service_name);
-                helper.setPhone_number(phone_number);
-                send = true;
-            } catch (Exception e) {
-                System.out.println("Se presento un error: {}");
-            }
-            return send;
+    public void sendCalls() throws Exception {
+
+        JSONArray response = new JSONArray(this.dummyCalls());
+        for(int i = 0; i < response.length(); i++) 
+        {
+            JSONObject callsJ = (JSONObject) response.get(i); 
+            Calls calls = new Calls();
+            calls.setStart_time(callsJ.get("start_time").toString());
+            calls.setService_name(callsJ.get("service_name").toString());
+            calls.setPhone_number(Double.parseDouble(callsJ.get("phone_number").toString())); 
+            this.callsRepository.save(calls);
         }
-
+                    
     }
+
+    public String getCallsFromContainer(String fini, String ffin) throws Exception {
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+
+        Map<String, String> params = new HashMap<>();
+        params.put("fIni", fini);
+        params.put("fFin", ffin);
+
+        RestTemplate template = new RestTemplate();
+        String url = Constantes.URL;
+
+        HttpEntity<Void> requestEntity = new HttpEntity<>(headers);
+
+        return template.exchange(
+                url, HttpMethod.GET, requestEntity, String.class, params).getBody();
+    }
+
+
+    public String dummyCalls(){
+        return "["+
+        ""+
+        "	{"+
+        "		\"start_time\": \"2020-08.12 11:56:21\","+
+        "		\"service_name\": \"Entrante Yale\","+
+        "		\"phone_number\": \"23334234234\""+
+        "	},{"+
+        "		\"start_time\": \"2020-08.12 11:56:21\","+
+        "		\"service_name\": \"Entrante Yale\","+
+        "		\"phone_number\": \"23334234234\""+
+        "	},{"+
+        "		\"start_time\": \"2020-08.12 11:56:21\","+
+        "		\"service_name\": \"Entrante Yale\","+
+        "		\"phone_number\": \"23334234234\""+
+        "	},{"+
+        "		\"start_time\": \"2020-08.12 11:56:21\","+
+        "		\"service_name\": \"Entrante Yale\","+
+        "		\"phone_number\": \"23334234234\""+
+        "	},{"+
+        "		\"start_time\": \"2020-08.12 11:56:21\","+
+        "		\"service_name\": \"Entrante Yale\","+
+        "		\"phone_number\": \"23334234234\""+
+        "	},{"+
+        "		\"start_time\": \"2020-08.12 11:56:21\","+
+        "		\"service_name\": \"Entrante Yale\","+
+        "		\"phone_number\": \"23334234234\""+
+        "	}"+
+        ""+
+        "]";
+            
+        
+    }
+
+}

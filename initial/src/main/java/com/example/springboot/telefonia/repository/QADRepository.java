@@ -1,7 +1,7 @@
-package initial.src.main.java.com.example.springboot.telefonia.repository;
+package com.example.springboot.telefonia.repository;
 
-import initial.src.main.java.com.example.springboot.telefonia.dto.CustomResponse;
-import initial.src.main.java.com.example.springboot.telefonia.Entity.Authenticate;
+import com.example.springboot.telefonia.dto.CustomResponse;
+import com.example.springboot.telefonia.Entity.Authenticate;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
@@ -10,7 +10,7 @@ import java.util.Optional;
 
 public class QADRepository implements CrudRepository<CustomResponse, Long> {
 
-    @Query("select new initial.src.main.java.com.example.springboot.telefonia.dto (Authenticate, Calls, HandlingTime, LostCalls, QueueTime, Survey," +
+    @Query("select new com.example.springboot.telefonia.dto (Authenticate, Calls, HandlingTime, LostCalls, QueueTime, Survey," +
             "    a.idAuthenticate," +
             "    a.keyA," +
             "    a.token," +

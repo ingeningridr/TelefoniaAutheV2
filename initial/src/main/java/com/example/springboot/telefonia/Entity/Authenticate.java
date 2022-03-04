@@ -14,7 +14,6 @@ public class Authenticate implements Serializable {
 
    private static final long serialVersionUID = 1L;
 
-   private Object GenerationType;
    @Id
    @GeneratedValue(strategy= javax.persistence.GenerationType.AUTO)
    @Column(name = "idAuthenticate")

@@ -1,4 +1,4 @@
-/**package initial.src.main.java.com.example.springboot.telefonia.wsdl.mapping;
+/**package com.example.springboot.telefonia.wsdl.mapping;
 
 import com.fasterxml.jackson.xml.annotate.JacksonXmlProperty;
 

@@ -1,49 +1,41 @@
-package initial.src.main.java.com.example.springboot.telefonia.service;
+package com.example.springboot.telefonia.service;
 
+import com.example.springboot.telefonia.dto.AuthenticateBody;
 
-import initial.src.main.java.com.example.springboot.telefonia.Interface.AuthenticatePort;
-import initial.src.main.java.com.example.springboot.telefonia.dto.AuthenticateBody;
-import org.junit.platform.commons.logging.LoggerFactory;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.logging.Logger;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
+import com.example.springboot.telefonia.repository.AuthenticateRepository;
+import com.example.springboot.telefonia.utils.JWebToken;
 
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 
-public abstract class AuthenticateService<JavaAuthenticateSender> implements AuthenticatePort {
+import org.json.*;
 
-    private static final Logger LOGGER = (Logger) LoggerFactory.getLogger(AuthenticateService.class);
+@Component
+@Service
+public class AuthenticateService  {
 
-   // @Autowired
-    private JavaAuthenticateSender sender;
+    @Autowired
+    private AuthenticateRepository authenticateRepository;
 
-    @Deprecated
-    public boolean sendAuthenticate(AuthenticateBody authenticateBody) throws Exception {
+    LocalDateTime ldt;
+    JSONObject payload;
 
-        LOGGER.info("AuthenticateBody: " + authenticateBody.toString());
-            String pathToAttachment;
-        return sendAuthenticate(
-                    authenticateBody.getIdAuthenticate(),
-                    authenticateBody.getKeyA(),
-                    authenticateBody.getToken());
-        }
-
-    private boolean sendAuthenticate(int idAuthenticate, String keyA, String token) {
-    return false;
+    public AuthenticateService(){
+        this.ldt = LocalDateTime.now().plusDays(90);
+        this.payload = new JSONObject("{\"sub\":\"1234\",\"aud\":[\"admin\"],"
+                + "\"exp\":" + ldt.toEpochSecond(ZoneOffset.UTC) + "}");
     }
 
-    private boolean sendAuthenticateTool(int idAuthenticate, String keyA, String token){
+    org.slf4j.Logger logger = LoggerFactory.getLogger(AuthenticateService.class); 
 
-        boolean send = false;
-        try {
-            AuthenticateBody helper = null;
-            helper.setIdAuthenticate(idAuthenticate);
-            helper.setKeyA(keyA);
-            helper.setToken(token);
-            send = true;
-        } catch (Exception e) {
-            System.out.println("Se presento un error: {}");
+    public String sendAuthenticate() throws Exception {        
+        return new JWebToken(payload).toString();
         }
-        return send;
-    }
 
 }

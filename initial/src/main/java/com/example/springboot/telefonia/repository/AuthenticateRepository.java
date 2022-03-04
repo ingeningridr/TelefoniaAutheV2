@@ -9,5 +9,5 @@ import javax.transaction.Transactional;
 
 @Transactional
 @Repository
-public interface AuthenticateRepository extends CrudRepository<DefinitivasCuentas, Long>{
+public interface AuthenticateRepository extends CrudRepository<Authenticate, Long>{
 }

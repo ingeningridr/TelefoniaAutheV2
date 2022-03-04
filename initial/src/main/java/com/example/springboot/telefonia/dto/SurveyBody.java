@@ -1,4 +1,4 @@
-package initial.src.main.java.com.example.springboot.telefonia.controller;
+package com.example.springboot.telefonia.dto;
 
 //import com.fasterxml.jackson.annotation.JsonProperty;
 

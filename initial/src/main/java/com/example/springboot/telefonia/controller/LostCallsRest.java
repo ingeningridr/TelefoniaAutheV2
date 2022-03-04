@@ -1,34 +1,40 @@
-package initial.src.main.java.com.example.springboot.telefonia.controller;
+package com.example.springboot.telefonia.controller;
 
-import initial.src.main.java.com.example.springboot.telefonia.repository.QADRepository;
-import initial.src.main.java.com.example.springboot.telefonia.response.LostCalls;
+import com.example.springboot.telefonia.repository.QADRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Date;
+import com.example.springboot.telefonia.service.LostCallsService;
 
-import com.example.springboot.telefonia.repository.LostCallsRepository;
+import java.util.Date;
 
 @RestController
 @RequestMapping(value = "/report")
 public class LostCallsRest {
 
-    @Autowired
-    private LostCallsRepository lostCallsRepository;
+  @Autowired
+  private LostCallsService lostCallsService;
+
+  public LostCallsRest(){
+      this.lostCallsService = new LostCallsService();
+  }
+
 
     @PostMapping(value = "/lostCalls")
-    public String sendLostCallsRest(
-    @RequestParam("idLC") int IdLC,
-    @RequestParam("dini") Date DIni,
-    @RequestParam("dfin") Date DFin,
-    @RequestParam("service") String Service,
-    @RequestParam("lostCalls") String LostCalls,
-    @RequestParam("start_name") String Start_name,
-    @RequestParam("service_name") String Service_name,
-    @RequestParam("phone_number") double Phone_number) {
+    public String sendLostCallsRest(@RequestParam String token, @RequestParam String fini, @RequestParam String ffin) {
+        try{
+            this.lostCallsService.sendLostCalls();
+            return "OK";
+            
+        }catch(Exception ex)
+        {
+            ex.printStackTrace();
+        }
 
-    return "idLC " + IdLC+ "dini " +DIni+ "dFin " + DFin + "service" +Service+ "LostCalls" + LostCalls + "start_name" + Start_name + "service_name" + Service_name + "phone_number" + Phone_number +"";
-
+        return "FAIL";
+    
     }
 
 }

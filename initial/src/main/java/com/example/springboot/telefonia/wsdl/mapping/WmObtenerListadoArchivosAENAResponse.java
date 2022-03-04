@@ -6,7 +6,7 @@
 // Generado el: 2022.01.19 a las 06:36:41 PM COT 
 //
 
-package initial.src.main.java.com.example.springboot.telefonia.wsdl.mapping;
+package com.example.springboot.telefonia.wsdl.mapping;
 
 
 import javax.xml.bind.annotation.XmlAccessType;

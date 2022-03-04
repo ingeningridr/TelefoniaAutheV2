@@ -32,9 +32,9 @@ spring:
   # Database
   datasource:
     driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
-    username: ${DEV_PEDIDOS_DB_USERNAME}
-    password: ${DEV_PEDIDOS_DB_PASSWORD}
-    url: jdbc:sqlserver://${DEV_PEDIDOS_DB_HOST}:${DEV_PEDIDOS_DB_PORT};database=${DEV_PEDIDOS_DB_NAME};loginTimeout=30;
+    username: FabricaTest
+    password: F4br1c42o22
+    url: jdbc:sqlserver://10.205.16.184:1433;database=Integraciones;loginTimeout=30;
     initialization-mode: always
     continue-on-error: true
   # JPA properties

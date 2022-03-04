@@ -1,10 +1,8 @@
-package initial.src.main.java.com.example.springboot.telefonia.controller;
+package com.example.springboot.telefonia.controller;
 
-import initial.src.main.java.com.example.springboot.telefonia.repository.QADRepository;
-import initial.src.main.java.com.example.springboot.telefonia.Interface.AuthenticatePort;
-import initial.src.main.java.com.example.springboot.telefonia.repository.QADRepository;
-
-import com.example.springboot.telefonia.repository.AuthenticateRepository;
+import com.example.springboot.telefonia.repository.QADRepository;
+import com.example.springboot.telefonia.service.AuthenticateService;
+import com.example.springboot.telefonia.repository.QADRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,22 +14,29 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = "/report")
     public class AuthenticateRest {
 
-    @Autowired
-    private AuthenticateRepository authenticateRepository;
-
-    @Autowired
-    private QADRepository QADRepository;
+        @Autowired
+        private AuthenticateService authenticateService;
+    
+        public AuthenticateRest(){
+            this.authenticateService = new AuthenticateService();
+        }
+    
 
             @PostMapping(value = "/authenticate")
             public String sendCallsRest(
-                    @RequestParam("idAuthenticate") int IdAuthenticate,
-                    @RequestParam("keyA") String KeyA,
-                    @RequestParam("token") String Token) {
+                    @RequestParam("idAuthenticate") String IdAuthenticate,
+                    @RequestParam("keyA") String KeyA) {
+                try{
+                        
+                    return this.authenticateService.sendAuthenticate();
+                }catch(Exception ex)
+                {
+                    ex.printStackTrace();
+                }
 
+                return "FAIL";
 
-                return "idAuthenticate " + IdAuthenticate + "KeyA " + KeyA + "token " + Token + "";
-
-            }
         }
+    }
 
 

@@ -1,67 +1,137 @@
-package initial.src.main.java.com.example.springboot.telefonia.service;
+package com.example.springboot.telefonia.service;
 
+import com.example.springboot.telefonia.Entity.HandlingTime;
+import com.example.springboot.telefonia.utils.Constantes;
 
-import initial.src.main.java.com.example.springboot.telefonia.Interface.HandlingTimePort;
-import initial.src.main.java.com.example.springboot.telefonia.controller.HandlingTimeBody;
-import initial.src.main.java.com.example.springboot.telefonia.response.HandlingTime;
-import org.junit.platform.commons.logging.LoggerFactory;
 import java.util.Date;
-import java.util.logging.Logger;
 
+import java.util.HashMap;
+import java.util.Map;
 
-public abstract class HandlingTimeService<JavaHandlingTimeSender, average_talk_time_in> implements HandlingTimePort {
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-    private static final Logger LOGGER = (Logger) LoggerFactory.getLogger(HandlingTimeService.class);
+import org.springframework.beans.factory.annotation.Autowired;
 
-    //@Autowired
-    private JavaHandlingTimeSender sender;
+import com.example.springboot.telefonia.repository.CallsRepository;
 
-    @Override
-    public boolean sendHandlingTime(HandlingTimeBody handlingTimeBody) throws Exception {
-        LOGGER.info("HandlingTimeBody: " + handlingTimeBody.toString());
-        String pathToAttachment;
-        return sendHandlingTime(
-                HandlingTimeBody.getIdHT(),
-                handlingTimeBody.getDIni(),
-                handlingTimeBody.getDFin(),
-                handlingTimeBody.getService(),
-                handlingTimeBody.getStart_time(),
-                handlingTimeBody.getService_name(),
-                handlingTimeBody.getNum_calls_answered(),
-                handlingTimeBody.getHandling_time(),
-                handlingTimeBody.getAverage_handling_time(),
-                handlingTimeBody.getTalk_time_in(),
-                handlingTimeBody.getAverage_talk_time_in());
+import org.springframework.http.*;
+import org.springframework.web.client.RestTemplate;
+
+import com.sun.net.httpserver.HttpContext;
+import org.apache.http.impl.client.DefaultRedirectStrategy;
+import org.apache.http.client.HttpClient;
+import org.apache.http.HttpResponse;
+import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
+import org.apache.http.impl.client.HttpClientBuilder;
+import org.apache.http.impl.client.LaxRedirectStrategy;
+
+import com.example.springboot.telefonia.repository.*;
+
+import org.json.*;
+import org.slf4j.LoggerFactory;
+
+@Component
+@Service
+public class HandlingTimeService {
+
+    org.slf4j.Logger logger = LoggerFactory.getLogger(HandlingTimeService.class); 
+
+    @Autowired
+    private HandlingRepository handlingRepository;
+
+    public HandlingTimeService(){
+        
     }
 
-    private boolean sendHandlingTime(int idHT, Date dIni, Date dFin, String service, Date start_time, String service_name, double num_calls_answered, Date handling_time, Date average_handling_time, Date talk_time_in, Date average_talk_time_in) {
-         return false;
-    }
+    /**
+     * 
+     * @throws Exception
+     */
+    public void sendHandlingTime() throws Exception {
 
-    private boolean sendHandlingTimeTool(int idHT,Date dIni, Date dFin, String service, Date start_time, String service_name, double num_calls_answered,
-                                         Date handling_time,Date average_handling_time,Date talk_time_in, Date average_talk_time_in ){
+        JSONArray response = new JSONArray(this.dummyHandling());
 
-        boolean send = false;
-        try {
+        for(int i = 0; i < response.length(); i++) 
+        {
+            JSONObject handling = (JSONObject) response.get(i); 
+            HandlingTime handlingTimeBody = new HandlingTime();
+        
+            handlingTimeBody.setStart_time(handling.get("start_time").toString());
+            handlingTimeBody.setService_name(handling.get("service_name").toString());
+       
 
-            HandlingTime helper = null;
-            helper.setIdHT(idHT);
-            helper.setDIni(dIni);
-            helper.setDFin(dFin);
-            helper.setService(service);
-            helper.setStart_time(start_time);
-            helper.setService_name(service_name);
-            helper.setNum_calls_answered(num_calls_answered);
-            helper.setHandling_time(handling_time);
-            helper.setService_name(service_name);
-            helper.setAverage_handling_time(average_handling_time);
-            helper.setTalk_time_in(talk_time_in);
-            helper.setAverage_talk_time_in(average_talk_time_in);
-            send = true;
-        } catch (Exception e) {
-            System.out.println("Se presento un error: {}");
+            handlingTimeBody.setNum_calls_answered(Double.parseDouble(handling.get("num_calls_answered").toString()));       
+            handlingTimeBody.setHandling_time(handling.get("handling_time").toString());
+            handlingTimeBody.setAverage_handling_time(handling.get("average_handling_time").toString());
+    
+            handlingTimeBody.setTalk_time_in(handling.get("talk_time_in").toString());
+            handlingTimeBody.setAverage_talk_time_in(handling.get("average_talk_time_in").toString());
+
+            this.handlingRepository.save(handlingTimeBody);
         }
-        return send;
+        
+
     }
 
+    private String getHandlingTimeService(String fini, String ffin) throws Exception {
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+
+        Map<String, String> params = new HashMap<>();
+        params.put("fIni", fini);
+        params.put("fFin", ffin);
+
+        RestTemplate template = new RestTemplate();
+        String url = Constantes.URL;
+
+        HttpEntity<Void> requestEntity = new HttpEntity<>(headers);
+
+        return template.exchange(
+                url, HttpMethod.GET, requestEntity, String.class, params).getBody();
+    }
+
+    private String dummyHandling(){
+        return "["+
+        ""+
+        "	{"+
+        "		\"start_time\": \"2020-08.12 11:56:21\","+
+        "		\"service_name\": \"Entrante Yale\","+
+        "		\"num_calls_answered\": 23.0,"+
+        "		\"handling_time\": \"02:00:43\","+
+        "		\"average_handling_time\": \"00:00:06.876263\","+
+        "		\"talk_time_in\": \"00:00:00\","+
+        "		\"average_talk_time_in\": \"00:00:06.876263\""+
+        "	},{"+
+        "		\"start_time\": \"2020-08.12 11:56:21\","+
+        "		\"service_name\": \"Entrante Yale\","+
+        "		\"num_calls_answered\": 23.0,"+
+        "		\"handling_time\": \"02:00:43\","+
+        "		\"average_handling_time\": \"00:00:06.876263\","+
+        "		\"talk_time_in\": \"00:00:00\","+
+        "		\"average_talk_time_in\": \"00:00:06.876263\""+
+        "	},{"+
+        "		\"start_time\": \"2020-08.12 11:56:21\","+
+        "		\"service_name\": \"Entrante Yale\","+
+        "		\"num_calls_answered\": 23.0,"+
+        "		\"handling_time\": \"02:00:43\","+
+        "		\"average_handling_time\": \"00:00:06.876263\","+
+        "		\"talk_time_in\": \"00:00:00\","+
+        "		\"average_talk_time_in\": \"00:00:06.876263\""+
+        "	},{"+
+        "		\"start_time\": \"2020-08.12 11:56:21\","+
+        "		\"service_name\": \"Entrante Yale\","+
+        "		\"num_calls_answered\": 23.0,"+
+        "		\"handling_time\": \"02:00:43\","+
+        "		\"average_handling_time\": \"00:00:06.876263\","+
+        "		\"talk_time_in\": \"00:00:00\","+
+        "		\"average_talk_time_in\": \"00:00:06.876263\""+
+        "	}"+
+        ""+
+        "]";
+            
+        
+    }
+
+    
 }
