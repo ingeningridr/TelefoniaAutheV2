@@ -27,8 +27,8 @@ public class CallsRest {
     public String sendCallsRest(@RequestParam String token, @RequestParam String fini, @RequestParam String ffin) 
     {
         try{
-            this.callService.sendCalls();
-            return "OK";
+            
+            return this.callService.sendCalls(fini, ffin).toString();
             
         }catch(Exception ex)
         {

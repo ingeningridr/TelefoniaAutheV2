@@ -44,16 +44,16 @@ public class QueueTimeService {
         
     }
 
-    public void sendQueueTimeTool() {
+    public JSONArray sendQueueTimeTool(String fini, String ffin) {
 
-        JSONArray response = new JSONArray(this.dummyQueue());        
+        JSONArray response = new JSONArray(this.dummyQueue(fini, ffin));        
         
         for(int i = 0; i < response.length(); i++) 
         {
             JSONObject quej = (JSONObject) response.get(i); 
             QueueTime queueTimeBody = new QueueTime();
             
-            queueTimeBody.setStart_time(quej.get("start_time").toString());
+            queueTimeBody.setStart_time(quej.get("start_time").toString().replaceAll("fini", fini).replaceAll("ffin", ffin));
             queueTimeBody.setService_name(quej.get("service_name").toString());
             
             queueTimeBody.setNum_calls_queued(Double.parseDouble(quej.get("num_calls_queued").toString()));
@@ -70,8 +70,15 @@ public class QueueTimeService {
             
             queueTimeBody.setNum_calls_queued_answered(Double.parseDouble(quej.get("num_calls_queued_answered").toString()));
 
+            queueTimeBody.setdIni(fini);
+            queueTimeBody.setdFin(ffin);
+
+            queueTimeBody.setService(quej.get("service_name").toString());
+
             this.queueRepository.save(queueTimeBody);
         }
+
+        return response;
        
     }
 
@@ -99,47 +106,47 @@ public class QueueTimeService {
      * 
      * @return
      */
-    private String dummyQueue(){
+    private String dummyQueue(String fini, String ffin){
         return "["+
         ""+
         "	{"+
-        "		\"start_time\": \"2020-08.12 11:56:21\","+
+        "		\"start_time\": \"fini\","+
         "		\"service_name\": \"Entrante Yale\","+
-        "		\"num_calls_queued\": 23.0,"+
+        "		\"num_calls_queued\": 1.0,"+
         "		\"total_time_queued\": \"02:00:43\","+
-        "		\"average_time_queued\": \"00:00:06.876263\","+
+        "		\"average_time_queued\": \"00:00:0.876263\","+
         "		\"abandonment_time_queued\": \"00:00:00\","+
         "		\"num_calls_queued_abandoned\": 3.2,"+
-        "		\"answer_time_queued\": \"00:02:66\","+
-        "		\"num_calls_queued_answered\": 34"+
+        "		\"answer_time_queued\": \"00:06:66\","+
+        "		\"num_calls_queued_answered\": 30"+
         "	},{"+
-        "		\"start_time\": \"2020-08.12 11:56:21\","+
-        "		\"service_name\": \"Entrante Yale\","+
+        "		\"start_time\": \"fini\","+
+        "		\"service_name\": \"Entrante Yale2\","+
         "		\"num_calls_queued\": 23.0,"+
-        "		\"total_time_queued\": \"02:00:43\","+
-        "		\"average_time_queued\": \"00:00:06.876263\","+
-        "		\"abandonment_time_queued\": \"00:00:00\","+
-        "		\"num_calls_queued_abandoned\": 3.2,"+
-        "		\"answer_time_queued\": \"00:02:66\","+
-        "		\"num_calls_queued_answered\": 34"+
+        "		\"total_time_queued\": \"01:01:12\","+
+        "		\"average_time_queued\": \"00:15:0.876263\","+
+        "		\"abandonment_time_queued\": \"00:01:00\","+
+        "		\"num_calls_queued_abandoned\": 0.0,"+
+        "		\"answer_time_queued\": \"00:01:66\","+
+        "		\"num_calls_queued_answered\": 20"+
         "	},{"+
-        "		\"start_time\": \"2020-08.12 11:56:21\","+
-        "		\"service_name\": \"Entrante Yale\","+
+        "		\"start_time\": \"fini\","+
+        "		\"service_name\": \"Entrante Yale3\","+
         "		\"num_calls_queued\": 23.0,"+
-        "		\"total_time_queued\": \"02:00:43\","+
-        "		\"average_time_queued\": \"00:00:06.876263\","+
+        "		\"total_time_queued\": \"06:00:00\","+
+        "		\"average_time_queued\": \"00:10:00.876263\","+
         "		\"abandonment_time_queued\": \"00:00:00\","+
-        "		\"num_calls_queued_abandoned\": 3.2,"+
-        "		\"answer_time_queued\": \"00:02:66\","+
-        "		\"num_calls_queued_answered\": 34"+
+        "		\"num_calls_queued_abandoned\": 6.2,"+
+        "		\"answer_time_queued\": \"00:05:66\","+
+        "		\"num_calls_queued_answered\": 12"+
         "	},{"+
-        "		\"start_time\": \"2020-08.12 11:56:21\","+
-        "		\"service_name\": \"Entrante Yale\","+
-        "		\"num_calls_queued\": 23.0,"+
-        "		\"total_time_queued\": \"02:00:43\","+
-        "		\"average_time_queued\": \"00:00:06.876263\","+
+        "		\"start_time\": \"fini\","+
+        "		\"service_name\": \"Entrante Yale4\","+
+        "		\"num_calls_queued\": 15.0,"+
+        "		\"total_time_queued\": \"01:15:43\","+
+        "		\"average_time_queued\": \"00:12:00.876263\","+
         "		\"abandonment_time_queued\": \"00:00:00\","+
-        "		\"num_calls_queued_abandoned\": 3.2,"+
+        "		\"num_calls_queued_abandoned\": 9.2,"+
         "		\"answer_time_queued\": \"00:02:66\","+
         "		\"num_calls_queued_answered\": 34"+
         "	}"+

@@ -28,23 +28,28 @@ public class CallsService  {
     private CallsRepository callsRepository;
 
     public CallsService(){
-        
+
     }
 
     org.slf4j.Logger logger = LoggerFactory.getLogger(CallsService.class); 
 
-    public void sendCalls() throws Exception {
+    public JSONArray sendCalls(String fini, String ffin) throws Exception {
 
-        JSONArray response = new JSONArray(this.dummyCalls());
+        JSONArray response = new JSONArray(this.dummyCalls(fini, ffin));
         for(int i = 0; i < response.length(); i++) 
         {
             JSONObject callsJ = (JSONObject) response.get(i); 
             Calls calls = new Calls();
-            calls.setStart_time(callsJ.get("start_time").toString());
+            calls.setStart_time(callsJ.get("start_time").toString().replaceAll("fini", fini).replaceAll("ffin", ffin));
             calls.setService_name(callsJ.get("service_name").toString());
+            calls.setdIni(fini);
+            calls.setdFin(ffin);
+            calls.setService(callsJ.get("service_name").toString());
             calls.setPhone_number(Double.parseDouble(callsJ.get("phone_number").toString())); 
             this.callsRepository.save(calls);
         }
+
+        return response;
                     
     }
 
@@ -66,33 +71,33 @@ public class CallsService  {
     }
 
 
-    public String dummyCalls(){
+    public String dummyCalls(String fini, String ffin){
         return "["+
         ""+
         "	{"+
-        "		\"start_time\": \"2020-08.12 11:56:21\","+
-        "		\"service_name\": \"Entrante Yale\","+
-        "		\"phone_number\": \"23334234234\""+
+        "		\"start_time\": \"fini\","+
+        "		\"service_name\": \"Entrante Yale1 Cliente\","+
+        "		\"phone_number\": \"23334234212\""+
         "	},{"+
-        "		\"start_time\": \"2020-08.12 11:56:21\","+
-        "		\"service_name\": \"Entrante Yale\","+
-        "		\"phone_number\": \"23334234234\""+
+        "		\"start_time\": \"fini\","+
+        "		\"service_name\": \"Entrante Yale2\","+
+        "		\"phone_number\": \"23334234212\""+
         "	},{"+
-        "		\"start_time\": \"2020-08.12 11:56:21\","+
-        "		\"service_name\": \"Entrante Yale\","+
-        "		\"phone_number\": \"23334234234\""+
+        "		\"start_time\": \"fini\","+
+        "		\"service_name\": \"Entrante Yale3\","+
+        "		\"phone_number\": \"21134234234\""+
         "	},{"+
-        "		\"start_time\": \"2020-08.12 11:56:21\","+
-        "		\"service_name\": \"Entrante Yale\","+
-        "		\"phone_number\": \"23334234234\""+
+        "		\"start_time\": \"ffin\","+
+        "		\"service_name\": \"Entrante Yale4\","+
+        "		\"phone_number\": \"21134234234\""+
         "	},{"+
-        "		\"start_time\": \"2020-08.12 11:56:21\","+
-        "		\"service_name\": \"Entrante Yale\","+
-        "		\"phone_number\": \"23334234234\""+
+        "		\"start_time\": \"ffin\","+
+        "		\"service_name\": \"Entrante Yale1\","+
+        "		\"phone_number\": \"23334234216\""+
         "	},{"+
-        "		\"start_time\": \"2020-08.12 11:56:21\","+
-        "		\"service_name\": \"Entrante Yale\","+
-        "		\"phone_number\": \"23334234234\""+
+        "		\"start_time\": \"ffin\","+
+        "		\"service_name\": \"Entrante Yale2\","+
+        "		\"phone_number\": \"23334234216\""+
         "	}"+
         ""+
         "]";

@@ -48,16 +48,16 @@ public class HandlingTimeService {
      * 
      * @throws Exception
      */
-    public void sendHandlingTime() throws Exception {
+    public JSONArray sendHandlingTime(String fini, String ffin) throws Exception {
 
-        JSONArray response = new JSONArray(this.dummyHandling());
+        JSONArray response = new JSONArray(this.dummyHandling(fini, ffin));
 
         for(int i = 0; i < response.length(); i++) 
         {
             JSONObject handling = (JSONObject) response.get(i); 
             HandlingTime handlingTimeBody = new HandlingTime();
         
-            handlingTimeBody.setStart_time(handling.get("start_time").toString());
+            handlingTimeBody.setStart_time(handling.get("start_time").toString().replaceAll("fini", fini).replaceAll("ffin", ffin));
             handlingTimeBody.setService_name(handling.get("service_name").toString());
        
 
@@ -68,8 +68,15 @@ public class HandlingTimeService {
             handlingTimeBody.setTalk_time_in(handling.get("talk_time_in").toString());
             handlingTimeBody.setAverage_talk_time_in(handling.get("average_talk_time_in").toString());
 
+            handlingTimeBody.setdIni(fini);
+            handlingTimeBody.setdFin(ffin);
+
+            handlingTimeBody.setService(handling.get("service_name").toString());
+
             this.handlingRepository.save(handlingTimeBody);
         }
+
+        return response;
         
 
     }
@@ -91,41 +98,41 @@ public class HandlingTimeService {
                 url, HttpMethod.GET, requestEntity, String.class, params).getBody();
     }
 
-    private String dummyHandling(){
+    private String dummyHandling(String fini, String ffin){
         return "["+
         ""+
         "	{"+
-        "		\"start_time\": \"2020-08.12 11:56:21\","+
+        "		\"start_time\": \"fini\","+
         "		\"service_name\": \"Entrante Yale\","+
-        "		\"num_calls_answered\": 23.0,"+
-        "		\"handling_time\": \"02:00:43\","+
+        "		\"num_calls_answered\": 2.0,"+
+        "		\"handling_time\": \"01:00:43\","+
         "		\"average_handling_time\": \"00:00:06.876263\","+
         "		\"talk_time_in\": \"00:00:00\","+
         "		\"average_talk_time_in\": \"00:00:06.876263\""+
         "	},{"+
-        "		\"start_time\": \"2020-08.12 11:56:21\","+
-        "		\"service_name\": \"Entrante Yale\","+
-        "		\"num_calls_answered\": 23.0,"+
-        "		\"handling_time\": \"02:00:43\","+
-        "		\"average_handling_time\": \"00:00:06.876263\","+
+        "		\"start_time\": \"fini\","+
+        "		\"service_name\": \"Entrante Yale2\","+
+        "		\"num_calls_answered\": 21.0,"+
+        "		\"handling_time\": \"05:00:43\","+
+        "		\"average_handling_time\": \"00:00:09.876263\","+
         "		\"talk_time_in\": \"00:00:00\","+
-        "		\"average_talk_time_in\": \"00:00:06.876263\""+
+        "		\"average_talk_time_in\": \"00:00:09.876263\""+
         "	},{"+
-        "		\"start_time\": \"2020-08.12 11:56:21\","+
-        "		\"service_name\": \"Entrante Yale\","+
+        "		\"start_time\": \"ffin\","+
+        "		\"service_name\": \"Entrante Yale3\","+
         "		\"num_calls_answered\": 23.0,"+
         "		\"handling_time\": \"02:00:43\","+
-        "		\"average_handling_time\": \"00:00:06.876263\","+
-        "		\"talk_time_in\": \"00:00:00\","+
-        "		\"average_talk_time_in\": \"00:00:06.876263\""+
+        "		\"average_handling_time\": \"00:00:07.876263\","+
+        "		\"talk_time_in\": \"00:10:00\","+
+        "		\"average_talk_time_in\": \"00:00:07.876263\""+
         "	},{"+
-        "		\"start_time\": \"2020-08.12 11:56:21\","+
-        "		\"service_name\": \"Entrante Yale\","+
-        "		\"num_calls_answered\": 23.0,"+
-        "		\"handling_time\": \"02:00:43\","+
-        "		\"average_handling_time\": \"00:00:06.876263\","+
+        "		\"start_time\": \"ffin\","+
+        "		\"service_name\": \"Entrante Yale4\","+
+        "		\"num_calls_answered\": 13.0,"+
+        "		\"handling_time\": \"06:00:43\","+
+        "		\"average_handling_time\": \"00:05:06.876263\","+
         "		\"talk_time_in\": \"00:00:00\","+
-        "		\"average_talk_time_in\": \"00:00:06.876263\""+
+        "		\"average_talk_time_in\": \"00:05:06.876263\""+
         "	}"+
         ""+
         "]";

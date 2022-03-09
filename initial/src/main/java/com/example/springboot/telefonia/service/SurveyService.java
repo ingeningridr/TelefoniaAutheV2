@@ -44,21 +44,21 @@ public class SurveyService {
         
     }
 
-    public void sendSurveyTool() throws Exception {
+    public JSONArray sendSurveyTool(String fini, String ffin) throws Exception {
 
-        JSONArray response = new JSONArray(this.dummySurvey());        
+        JSONArray response = new JSONArray(this.dummySurvey(fini, ffin));        
         
         for(int i = 0; i < response.length(); i++) 
         {
             JSONObject surv = (JSONObject) response.get(i); 
             Survey survey = new Survey();
-            survey.setStart_name(surv.get("start_time").toString());
+            survey.setStart_name(surv.get("start_time").toString().replaceAll("fini", fini).replaceAll("ffin", ffin));
             survey.setService_name(surv.get("service_name").toString());
             survey.setPhone_number(Double.parseDouble(surv.get("phone_number").toString()));
 
             survey.setFcr(surv.get("FCR").toString());
             survey.setNps(surv.get("NPS").toString());
-            survey.setCs(surv.get("CS") != null ? Integer.parseInt(surv.get("CS").toString()) : null);
+            survey.setCs(surv.get("CS") != null && !(surv.get("CS").toString().equalsIgnoreCase("null")) ? Integer.parseInt(surv.get("CS").toString()) : 0);
 
             survey.setP1(surv.get("P1").toString());
             survey.setP2(surv.get("P2").toString());
@@ -70,8 +70,15 @@ public class SurveyService {
             survey.setP8(surv.get("P8").toString());
             survey.setP9(surv.get("P9").toString());
 
+            survey.setdIni(fini);
+            survey.setdFin(ffin);        
+            
+            survey.setService(surv.get("service_name").toString());
+
             this.surveyRepository.save(survey);
         }
+
+        return response;
 
     }
 
@@ -96,11 +103,43 @@ public class SurveyService {
     }
 
 
-    private String dummySurvey(){
+    private String dummySurvey(String fini, String ffin){
         return "["+
         ""+
         "	{"+
-        "		\"start_time\": \"2020-08.12 11:56:21\","+
+        "		\"start_time\": \"fini\","+
+        "		\"service_name\": \"Entrante Yale\","+
+        "		\"phone_number\": \"23334234212\","+
+        "		\"FCR\": null,"+
+        "		\"NPS\": null,"+
+        "		\"CS\": null,"+
+        "		\"P1\": null,"+
+        "		\"P2\": null,"+
+        "		\"P3\": null,"+
+        "		\"P4\": null,"+
+        "		\"P5\": null,"+
+        "		\"P6\": null,"+
+        "		\"P7\": null,"+
+        "		\"P8\": null,"+
+        "		\"P9\": null"+
+        "	},{"+
+        "		\"start_time\": \"fini\","+
+        "		\"service_name\": \"Entrante Yale1\","+
+        "		\"phone_number\": \"23334234212\","+
+        "		\"FCR\": null,"+
+        "		\"NPS\": null,"+
+        "		\"CS\": null,"+
+        "		\"P1\": null,"+
+        "		\"P2\": null,"+
+        "		\"P3\": null,"+
+        "		\"P4\": null,"+
+        "		\"P5\": null,"+
+        "		\"P6\": null,"+
+        "		\"P7\": null,"+
+        "		\"P8\": null,"+
+        "		\"P9\": null"+
+        "	},{"+
+        "		\"start_time\": \"fini\","+
         "		\"service_name\": \"Entrante Yale\","+
         "		\"phone_number\": \"23334234234\","+
         "		\"FCR\": null,"+
@@ -116,7 +155,7 @@ public class SurveyService {
         "		\"P8\": null,"+
         "		\"P9\": null"+
         "	},{"+
-        "		\"start_time\": \"2020-08.12 11:56:21\","+
+        "		\"start_time\": \"ffin\","+
         "		\"service_name\": \"Entrante Yale\","+
         "		\"phone_number\": \"23334234234\","+
         "		\"FCR\": null,"+
@@ -132,7 +171,7 @@ public class SurveyService {
         "		\"P8\": null,"+
         "		\"P9\": null"+
         "	},{"+
-        "		\"start_time\": \"2020-08.12 11:56:21\","+
+        "		\"start_time\": \"ffin\","+
         "		\"service_name\": \"Entrante Yale\","+
         "		\"phone_number\": \"23334234234\","+
         "		\"FCR\": null,"+
@@ -148,7 +187,7 @@ public class SurveyService {
         "		\"P8\": null,"+
         "		\"P9\": null"+
         "	},{"+
-        "		\"start_time\": \"2020-08.12 11:56:21\","+
+        "		\"start_time\": \"ffin\","+
         "		\"service_name\": \"Entrante Yale\","+
         "		\"phone_number\": \"23334234234\","+
         "		\"FCR\": null,"+
@@ -164,23 +203,7 @@ public class SurveyService {
         "		\"P8\": null,"+
         "		\"P9\": null"+
         "	},{"+
-        "		\"start_time\": \"2020-08.12 11:56:21\","+
-        "		\"service_name\": \"Entrante Yale\","+
-        "		\"phone_number\": \"23334234234\","+
-        "		\"FCR\": null,"+
-        "		\"NPS\": null,"+
-        "		\"CS\": null,"+
-        "		\"P1\": null,"+
-        "		\"P2\": null,"+
-        "		\"P3\": null,"+
-        "		\"P4\": null,"+
-        "		\"P5\": null,"+
-        "		\"P6\": null,"+
-        "		\"P7\": null,"+
-        "		\"P8\": null,"+
-        "		\"P9\": null"+
-        "	},{"+
-        "		\"start_time\": \"2020-08.12 11:56:21\","+
+        "		\"start_time\": \"ffin\","+
         "		\"service_name\": \"Entrante Yale\","+
         "		\"phone_number\": \"23334234234\","+
         "		\"FCR\": null,"+
@@ -196,8 +219,7 @@ public class SurveyService {
         "		\"P8\": null,"+
         "		\"P9\": null"+
         "	}"+
-        ""+
-        "]";
+        "]".replaceAll("ffin", ffin).replaceAll("fini", fini);
             
         
     }

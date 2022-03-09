@@ -7,9 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.io.Serializable;
-import java.util.Date;
 
-@Entity
+@Entity(name = "Boomi_QueueTime")
 public class QueueTime implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -23,8 +22,6 @@ public class QueueTime implements Serializable {
     private String dFin;
     @Column(name = "service")
     private String service;
-    @Column(name = "queueTime")
-    private String queueTime;
     @Column(name = "start_time")
     private String start_time;
     @Column(name = "service_name")
@@ -50,12 +47,11 @@ public QueueTime(){
 
 }
 
-    public QueueTime(int idQT, String dIni, String dFin, String service, String queueTime, String start_time, String service_name, double num_calls_queued, String total_time_queued, String average_time_queued, String abandonment_time_queued, double num_calls_queued_abandoned, String answer_time_queued, double num_calls_queued_answered) {
+    public QueueTime(int idQT, String dIni, String dFin, String service, String start_time, String service_name, double num_calls_queued, String total_time_queued, String average_time_queued, String abandonment_time_queued, double num_calls_queued_abandoned, String answer_time_queued, double num_calls_queued_answered) {
         this.idQT = idQT;
         this.dIni = dIni;
         this.dFin = dFin;
         this.service = service;
-        this.queueTime = queueTime;
         this.start_time = start_time;
         this.service_name = service_name;
         this.num_calls_queued = num_calls_queued;
@@ -97,14 +93,6 @@ public QueueTime(){
 
     public void setService(String service) {
         this.service = service;
-    }
-
-    public String getQueueTime() {
-        return queueTime;
-    }
-
-    public void setQueueTime(String queueTime) {
-        this.queueTime = queueTime;
     }
 
     public String getStart_time() {

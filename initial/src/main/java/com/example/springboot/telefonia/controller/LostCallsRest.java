@@ -25,8 +25,8 @@ public class LostCallsRest {
     @PostMapping(value = "/lostCalls")
     public String sendLostCallsRest(@RequestParam String token, @RequestParam String fini, @RequestParam String ffin) {
         try{
-            this.lostCallsService.sendLostCalls();
-            return "OK";
+            
+            return this.lostCallsService.sendLostCalls(fini, ffin).toString();
             
         }catch(Exception ex)
         {

@@ -23,8 +23,8 @@ public class SurveyRest {
     @ResponseBody
     public String sendSurveyRest(@RequestParam String token, @RequestParam String fini, @RequestParam String ffin) {
         try{
-            this.surveyService.sendSurveyTool();
-            return "OK";
+            
+            return this.surveyService.sendSurveyTool(fini, ffin).toString();
             
         }catch(Exception ex)
         {

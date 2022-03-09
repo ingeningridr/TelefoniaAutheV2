@@ -25,8 +25,7 @@ public class HandlingTimeRest {
     @PostMapping(value = "/handlingTime")
     public String sendHandlingTimeRest(@RequestParam String token, @RequestParam String fini, @RequestParam String ffin) {
         try{
-            this.handling.sendHandlingTime();
-            return "OK";
+            return this.handling.sendHandlingTime(fini, ffin).toString();
             
         }catch(Exception ex)
         {

@@ -24,8 +24,8 @@ public class QueueTimeRest {
     @ResponseBody
     public String sendQueueTimeRest(@RequestParam String token, @RequestParam String fini, @RequestParam String ffin) {
         try{
-            this.queueTimeService.sendQueueTimeTool();
-            return "OK";
+            
+            return this.queueTimeService.sendQueueTimeTool(fini, ffin).toString();
             
         }catch(Exception ex)
         {

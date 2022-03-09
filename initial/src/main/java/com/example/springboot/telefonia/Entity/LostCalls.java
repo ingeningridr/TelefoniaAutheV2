@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Date;
 
-@Entity
+@Entity(name = "Boomi_LostCalls")
 public class LostCalls implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -22,8 +22,6 @@ public class LostCalls implements Serializable {
     private String dFin;
     @Column(name = "service")
     private String service;
-    @Column(name = "lostCalls")
-    private String lostCalls;
     @Column(name = "start_name")
     private String start_name;
     @Column(name = "service_name")
@@ -36,12 +34,11 @@ public class LostCalls implements Serializable {
 
     }
 
-    public LostCalls(int idLC, String dIni, String dFin, String service, String lostCalls, String start_name, String service_name, double phone_number) {
+    public LostCalls(int idLC, String dIni, String dFin, String service, String start_name, String service_name, double phone_number) {
         this.idLC = idLC;
         this.dIni = dIni;
         this.dFin = dFin;
         this.service = service;
-        this.lostCalls = lostCalls;
         this.start_name = start_name;
         this.service_name = service_name;
         this.phone_number = phone_number;
@@ -77,14 +74,6 @@ public class LostCalls implements Serializable {
 
     public void setService(String service) {
         this.service = service;
-    }
-
-    public String getLostCalls() {
-        return lostCalls;
-    }
-
-    public void setLostCalls(String lostCalls) {
-        this.lostCalls = lostCalls;
     }
 
     public String getStart_name() {
