@@ -15,27 +15,27 @@ public class HandlingTime implements Serializable {
 
     @Id
     @GeneratedValue(strategy= javax.persistence.GenerationType.AUTO)
-    @Column(name = "idHT")
+    @Column(name = "ht_IdHt")
     private int idHT;
-    @Column(name = "dIni")
+    @Column(name = "ht_DIni")
     private String dIni;
-    @Column(name = "dFin")
+    @Column(name = "ht_DFin")
     private String dFin;
-    @Column(name = "service")
+    @Column(name = "ht_Service")
     private String service;
-    @Column(name = "start_time")
+    @Column(name = "ht_StartTime")
     private String start_time;
-    @Column(name = "service_name")
+    @Column(name = "ht_ServiceName")
     private String service_name;
-    @Column(name = "num_calls_answered")
+    @Column(name = "ht_NumCallsAnswered")
     private double num_calls_answered;
-    @Column(name = "handling_time")
+    @Column(name = "ht_HandlingTime")
     private String handling_time;
-    @Column(name = "average_handling_time")
+    @Column(name = "ht_AverageHandlingTime")
     private String average_handling_time;
-    @Column(name = "talk_time_in")
+    @Column(name = "ht_TalkTimeIn")
     private String talk_time_in;
-    @Column(name = "average_talk_time_in")
+    @Column(name = "ht_AverageTalkTimeIn")
     private String average_talk_time_in;
 
     public HandlingTime(){

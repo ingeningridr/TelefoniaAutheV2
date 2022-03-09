@@ -15,43 +15,43 @@ public class Survey implements Serializable {
 
     @Id
     @GeneratedValue(strategy= javax.persistence.GenerationType.AUTO)
-    @Column(name = "idS")
+    @Column(name = "s_IdS")
     private int idS;
-    @Column(name = "dIni")
+    @Column(name = "s_DIni")
     private String dIni;
-    @Column(name = "dFin")
+    @Column(name = "s_DFin")
     private String dFin;
-    @Column(name = "service")
+    @Column(name = "s_Service")
     private String service;
-    @Column(name = "start_name")
+    @Column(name = "s_StartName")
     private String start_name;
-    @Column(name = "service_name")
+    @Column(name = "s_ServiceName")
     private String service_name;
-    @Column(name = "phone_number")
+    @Column(name = "s_PhoneNumber")
     private double phone_number;
-    @Column(name = "fcr")
+    @Column(name = "s_Fcr")
     private String fcr;
-    @Column(name = "nps")
+    @Column(name = "s_Nps")
     private String nps;
-    @Column(name = "cs")
+    @Column(name = "s_Cs")
     private int cs;
-    @Column(name = "p1")
+    @Column(name = "s_P1")
     private String p1;
-    @Column(name = "p2")
+    @Column(name = "s_P2")
     private String p2;
-    @Column(name = "p3")
+    @Column(name = "s_P3")
     private String p3;
-    @Column(name = "p4")
+    @Column(name = "s_P4")
     private String p4;
-    @Column(name = "p5")
+    @Column(name = "s_P5")
     private String p5;
-    @Column(name = "p6")
+    @Column(name = "s_P6")
     private String p6;
-    @Column(name = "p7")
+    @Column(name = "s_P7")
     private String p7;
-    @Column(name = "p8")
+    @Column(name = "s_P8")
     private String p8;
-    @Column(name = "p9")
+    @Column(name = "s_P9")
     private String p9;
 
     public Survey(){

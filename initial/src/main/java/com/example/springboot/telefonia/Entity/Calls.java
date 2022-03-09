@@ -16,19 +16,19 @@ public class Calls implements Serializable {
 
     @Id
     @GeneratedValue(strategy= javax.persistence.GenerationType.AUTO)
-    @Column(name = "idCalls")
+    @Column(name = "c_IdCalls")
     private int idCalls;
-    @Column(name = "dIni")
+    @Column(name = "c_DIni")
     private String dIni;
-    @Column(name = "dFin")
+    @Column(name = "c_DFin")
     private String dFin;
-    @Column(name = "service")
+    @Column(name = "c_Service")
     private String service;
-    @Column(name = "start_time")
+    @Column(name = "c_StartTime")
     private String start_time;
-    @Column(name = "service_name")
+    @Column(name = "c_ServiceName")
     private String service_name;
-    @Column(name = "phone_number")
+    @Column(name = "c_PhoneNumber")
     private double phone_number;
 
     public  Calls(){}

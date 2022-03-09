@@ -14,31 +14,31 @@ public class QueueTime implements Serializable {
 
     @Id
     @GeneratedValue(strategy= javax.persistence.GenerationType.AUTO)
-    @Column(name = "idQT")
+    @Column(name = "qt_IdQt")
     private int idQT;
-    @Column(name = "dIni")
+    @Column(name = "qt_DIni")
     private String dIni;
-    @Column(name = "dFin")
+    @Column(name = "qt_DFin")
     private String dFin;
-    @Column(name = "service")
+    @Column(name = "qt_Service")
     private String service;
-    @Column(name = "start_time")
+    @Column(name = "qt_StartTime")
     private String start_time;
-    @Column(name = "service_name")
+    @Column(name = "qt_ServiceName")
     private String service_name;
-    @Column(name = "num_calls_queued")
+    @Column(name = "qt_NumCallsQueued")
     private double num_calls_queued;
-    @Column(name = "total_time_queued")
+    @Column(name = "qt_TotalTimeQueued")
     private String total_time_queued;
-    @Column(name = "average_time_queued")
+    @Column(name = "qt_AverageTimeQueued")
     private String average_time_queued;
-    @Column(name = "abandonment_time_queued")
+    @Column(name = "qt_AbandonmentTimeQueued")
     private String abandonment_time_queued;
-    @Column(name = "num_calls_queued_abandoned")
+    @Column(name = "qt_NumCallsQueuedAbandoned")
     private double num_calls_queued_abandoned;
-    @Column(name = "answer_time_queued")
+    @Column(name = "qt_AnswerTimeQueued")
     private String answer_time_queued;
-    @Column(name = "num_calls_queued_answered")
+    @Column(name = "qt_NumCallsQueuedAnswered")
     private double num_calls_queued_answered;
 
 

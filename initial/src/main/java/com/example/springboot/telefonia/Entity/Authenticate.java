@@ -16,11 +16,11 @@ public class Authenticate implements Serializable {
 
    @Id
    @GeneratedValue(strategy= javax.persistence.GenerationType.AUTO)
-   @Column(name = "idAuthenticate")
+   @Column(name = "a_IdAuthenticate")
    private int idAuthenticate;
-   @Column(name = "keyA")
+   @Column(name = "a_KeyA")
    private String keyA;
-   @Column(name = "token")
+   @Column(name = "a_Token")
    private String token;
 
 protected  Authenticate(){

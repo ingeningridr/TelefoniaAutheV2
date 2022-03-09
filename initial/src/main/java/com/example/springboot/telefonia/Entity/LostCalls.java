@@ -14,19 +14,19 @@ public class LostCalls implements Serializable {
 
     @Id
     @GeneratedValue(strategy= javax.persistence.GenerationType.AUTO)
-    @Column(name = "idLC")
+    @Column(name = "lc_IdLC")
     private int idLC;
-    @Column(name = "dIni")
+    @Column(name = "lc_DIni")
     private String dIni;
-    @Column(name = "dFin")
+    @Column(name = "lc_DFin")
     private String dFin;
-    @Column(name = "service")
+    @Column(name = "lc_Service")
     private String service;
-    @Column(name = "start_name")
+    @Column(name = "lc_StartName")
     private String start_name;
-    @Column(name = "service_name")
+    @Column(name = "lc_ServiceName")
     private String service_name;
-    @Column(name = "phone_number")
+    @Column(name = "lc_PhoneNumber")
     private double phone_number;
 
 
