@@ -9,14 +9,14 @@ import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Date;
 
-@Entity(name = "Boomi_Calls")
+@Entity(name = "\"Boomi_Calls\"")
 public class Calls implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy= javax.persistence.GenerationType.AUTO)
-    @Column(name = "c_IdCalls")
+    @Column(name = "\"c_IdCalls\"")
     private int idCalls;
     @Column(name = "c_DIni")
     private String dIni;

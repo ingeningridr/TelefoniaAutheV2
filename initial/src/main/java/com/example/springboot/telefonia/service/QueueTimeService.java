@@ -2,6 +2,7 @@ package com.example.springboot.telefonia.service;
 
 import com.example.springboot.telefonia.Entity.QueueTime;
 import com.example.springboot.telefonia.utils.Constantes;
+import com.example.springboot.telefonia.utils.DateAssaUtil;
 
 import java.util.Date;
 
@@ -44,7 +45,7 @@ public class QueueTimeService {
         
     }
 
-    public JSONArray sendQueueTimeTool(String fini, String ffin) {
+    public JSONArray sendQueueTimeTool(String fini, String ffin) throws JSONException, Exception {
 
         JSONArray response = new JSONArray(this.dummyQueue(fini, ffin));        
         
@@ -53,7 +54,12 @@ public class QueueTimeService {
             JSONObject quej = (JSONObject) response.get(i); 
             QueueTime queueTimeBody = new QueueTime();
             
-            queueTimeBody.setStart_time(quej.get("start_time").toString().replaceAll("fini", fini).replaceAll("ffin", ffin));
+            queueTimeBody.setStart_time(quej.get("start_time").toString()
+            .replaceAll("ffinm", DateAssaUtil.dftest(ffin, -1))
+            .replaceAll("ffin", ffin)
+            .replaceAll("finim", DateAssaUtil.dftest(fini, 1))
+            .replaceAll("fini", fini)
+            );
             queueTimeBody.setService_name(quej.get("service_name").toString());
             
             queueTimeBody.setNum_calls_queued(Double.parseDouble(quej.get("num_calls_queued").toString()));
@@ -149,6 +155,26 @@ public class QueueTimeService {
         "		\"num_calls_queued_abandoned\": 9.2,"+
         "		\"answer_time_queued\": \"00:02:66\","+
         "		\"num_calls_queued_answered\": 34"+
+        "	},{"+
+        "		\"start_time\": \"fini\","+
+        "		\"service_name\": \"Entrante Yale5\","+
+        "		\"num_calls_queued\": 3.0,"+
+        "		\"total_time_queued\": \"05:15:43\","+
+        "		\"average_time_queued\": \"00:05:05.876263\","+
+        "		\"abandonment_time_queued\": \"00:00:00\","+
+        "		\"num_calls_queued_abandoned\": 0.0,"+
+        "		\"answer_time_queued\": \"00:02:66\","+
+        "		\"num_calls_queued_answered\": 3"+
+        "	},{"+
+        "		\"start_time\": \"fini\","+
+        "		\"service_name\": \"Entrante Yale5\","+
+        "		\"num_calls_queued\": 3.0,"+
+        "		\"total_time_queued\": \"05:15:43\","+
+        "		\"average_time_queued\": \"00:05:05.876263\","+
+        "		\"abandonment_time_queued\": \"00:00:00\","+
+        "		\"num_calls_queued_abandoned\": 0.0,"+
+        "		\"answer_time_queued\": \"00:02:66\","+
+        "		\"num_calls_queued_answered\": 3"+
         "	}"+
         ""+
         "]";

@@ -2,6 +2,7 @@ package com.example.springboot.telefonia.service;
 
 import com.example.springboot.telefonia.dto.CallsBody;
 import com.example.springboot.telefonia.utils.Constantes;
+import com.example.springboot.telefonia.utils.DateAssaUtil;
 
 import java.util.Date;
 
@@ -55,7 +56,12 @@ public class LostCallsService {
             JSONObject lostCalls = (JSONObject) response.get(i); 
             LostCalls lostCallsBody = new LostCalls();
 
-            lostCallsBody.setStart_name(lostCalls.get("start_time").toString().replaceAll("fini", fini).replaceAll("ffin", ffin));
+            lostCallsBody.setStart_name(lostCalls.get("start_time").toString()
+            .replaceAll("ffinm", DateAssaUtil.dftest(ffin, -1))
+            .replaceAll("ffin", ffin)
+            .replaceAll("finim", DateAssaUtil.dftest(fini, 1))
+            .replaceAll("fini", fini)
+            );
             lostCallsBody.setService_name(lostCalls.get("service_name").toString());
             lostCallsBody.setPhone_number(Double.parseDouble(lostCalls.get("phone_number").toString()));
      
@@ -114,9 +120,73 @@ public class LostCallsService {
         "		\"service_name\": \"Entrante Yale2\","+
         "		\"phone_number\": \"21134234234\""+
         "	},{"+
-        "		\"start_time\": \"ffin\","+
-        "		\"service_name\": \"Entrante Yale3\","+
+        "		\"start_time\": \"ffinm\","+
+        "		\"service_name\": \"Entrante Yale1\","+
         "		\"phone_number\": \"25334234234\""+
+        "	},{"+
+        "		\"start_time\": \"ffinm\","+
+        "		\"service_name\": \"Entrante Yale2\","+
+        "		\"phone_number\": \"25334234212\""+
+        "	},{"+
+        "		\"start_time\": \"ffinm\","+
+        "		\"service_name\": \"Entrante Yale3\","+
+        "		\"phone_number\": \"25334234212\""+
+        "	},{"+
+        "		\"start_time\": \"ffinm\","+
+        "		\"service_name\": \"Entrante Yale4\","+
+        "		\"phone_number\": \"25334234212\""+
+        "	},{"+
+        "		\"start_time\": \"finim\","+
+        "		\"service_name\": \"Entrante Yale1\","+
+        "		\"phone_number\": \"24334234211\""+
+        "	},{"+
+        "		\"start_time\": \"finim\","+
+        "		\"service_name\": \"Entrante Yale2\","+
+        "		\"phone_number\": \"24334234211\""+
+        "	},{"+
+        "		\"start_time\": \"finim\","+
+        "		\"service_name\": \"Entrante Yale3\","+
+        "		\"phone_number\": \"23335234234\""+
+        "	},{"+
+        "		\"start_time\": \"finim\","+
+        "		\"service_name\": \"Entrante Yale4\","+
+        "		\"phone_number\": \"23335234234\""+
+        "	},{"+
+        "		\"start_time\": \"finim\","+
+        "		\"service_name\": \"Entrante Yale5\","+
+        "		\"phone_number\": \"22254234234\""+
+        "	},{"+
+        "		\"start_time\": \"finim\","+
+        "		\"service_name\": \"Entrante Yale6\","+
+        "		\"phone_number\": \"22254234234\""+
+        "	},{"+
+        "		\"start_time\": \"finim\","+
+        "		\"service_name\": \"Entrante Yale7\","+
+        "		\"phone_number\": \"25334234234\""+
+        "	},{"+
+        "		\"start_time\": \"finim\","+
+        "		\"service_name\": \"Entrante Yale8\","+
+        "		\"phone_number\": \"25334234212\""+
+        "	},{"+
+        "		\"start_time\": \"finim\","+
+        "		\"service_name\": \"Entrante Yale9\","+
+        "		\"phone_number\": \"25334234212\""+
+        "	},{"+
+        "		\"start_time\": \"finim\","+
+        "		\"service_name\": \"Entrante Yale10\","+
+        "		\"phone_number\": \"25334234212\""+
+        "	},{"+
+        "		\"start_time\": \"finim\","+
+        "		\"service_name\": \"Entrante Yale11\","+
+        "		\"phone_number\": \"25334884234\""+
+        "	},{"+
+        "		\"start_time\": \"finim\","+
+        "		\"service_name\": \"Entrante Yale12\","+
+        "		\"phone_number\": \"25334884234\""+
+        "	},{"+
+        "		\"start_time\": \"finim\","+
+        "		\"service_name\": \"Entrante Yale13\","+
+        "		\"phone_number\": \"25334884234\""+
         "	}"+
         ""+
         "]";

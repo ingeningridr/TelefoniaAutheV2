@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Date;
 
-@Entity(name = "Boomi_LostCalls")
+@Entity(name = "\"Boomi_LostCalls\"")
 public class LostCalls implements Serializable {
 
     private static final long serialVersionUID = 1L;

@@ -2,6 +2,7 @@ package com.example.springboot.telefonia.service;
 
 import com.example.springboot.telefonia.Entity.HandlingTime;
 import com.example.springboot.telefonia.utils.Constantes;
+import com.example.springboot.telefonia.utils.DateAssaUtil;
 
 import java.util.Date;
 
@@ -57,7 +58,12 @@ public class HandlingTimeService {
             JSONObject handling = (JSONObject) response.get(i); 
             HandlingTime handlingTimeBody = new HandlingTime();
         
-            handlingTimeBody.setStart_time(handling.get("start_time").toString().replaceAll("fini", fini).replaceAll("ffin", ffin));
+            handlingTimeBody.setStart_time(handling.get("start_time").toString()
+            .replaceAll("ffinm", DateAssaUtil.dftest(ffin, -1))
+            .replaceAll("ffin", ffin)
+            .replaceAll("finim", DateAssaUtil.dftest(fini, 1))
+            .replaceAll("fini", fini)
+            );
             handlingTimeBody.setService_name(handling.get("service_name").toString());
        
 
@@ -132,6 +138,46 @@ public class HandlingTimeService {
         "		\"handling_time\": \"06:00:43\","+
         "		\"average_handling_time\": \"00:05:06.876263\","+
         "		\"talk_time_in\": \"00:00:00\","+
+        "		\"average_talk_time_in\": \"00:05:06.876263\""+
+        "	},{"+
+        "		\"start_time\": \"finim\","+
+        "		\"service_name\": \"Entrante Yale6\","+
+        "		\"num_calls_answered\": 6.3,"+
+        "		\"handling_time\": \"03:15:01\","+
+        "		\"average_handling_time\": \"00:00:08.876263\","+
+        "		\"talk_time_in\": \"02:00:00\","+
+        "		\"average_talk_time_in\": \"02:01:06.876263\""+
+        "	},{"+
+        "		\"start_time\": \"finim\","+
+        "		\"service_name\": \"Entrante Yale7\","+
+        "		\"num_calls_answered\": 1.0,"+
+        "		\"handling_time\": \"00:00:43\","+
+        "		\"average_handling_time\": \"00:00:00.426263\","+
+        "		\"talk_time_in\": \"00:00:43\","+
+        "		\"average_talk_time_in\": \"00:00:00.0426263\""+
+        "	},{"+
+        "		\"start_time\": \"finim\","+
+        "		\"service_name\": \"Entrante Yale8\","+
+        "		\"num_calls_answered\": 3.0,"+
+        "		\"handling_time\": \"04:00:43\","+
+        "		\"average_handling_time\": \"00:05:06.876263\","+
+        "		\"talk_time_in\": \"03:22:00\","+
+        "		\"average_talk_time_in\": \"00:05:06.876263\""+
+        "	},{"+
+        "		\"start_time\": \"finim\","+
+        "		\"service_name\": \"Entrante Yale9\","+
+        "		\"num_calls_answered\": 7.0,"+
+        "		\"handling_time\": \"08:00:43\","+
+        "		\"average_handling_time\": \"00:09:06.876263\","+
+        "		\"talk_time_in\": \"08:00:00\","+
+        "		\"average_talk_time_in\": \"00:09:06.876263\""+
+        "	},{"+
+        "		\"start_time\": \"finim\","+
+        "		\"service_name\": \"Entrante Yale10\","+
+        "		\"num_calls_answered\": 3.0,"+
+        "		\"handling_time\": \"04:00:43\","+
+        "		\"average_handling_time\": \"00:05:06.876263\","+
+        "		\"talk_time_in\": \"03:22:00\","+
         "		\"average_talk_time_in\": \"00:05:06.876263\""+
         "	}"+
         ""+

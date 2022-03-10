@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Date;
 
-@Entity(name = "Boomi_Survey")
+@Entity(name = "\"Boomi_Survey\"")
 public class Survey implements Serializable {
     private static final long serialVersionUID = 1L;
 

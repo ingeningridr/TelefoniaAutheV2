@@ -8,7 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.io.Serializable;
 
-@Entity(name = "Boomi_QueueTime")
+@Entity(name = "\"Boomi_QueueTime\"")
 public class QueueTime implements Serializable {
     private static final long serialVersionUID = 1L;
 

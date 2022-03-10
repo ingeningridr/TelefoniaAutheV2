@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Date;
 
-@Entity(name = "Boomi_Authenticate")
+@Entity(name = "\"Boomi_Authenticate\"")
 public class Authenticate implements Serializable {
 
    private static final long serialVersionUID = 1L;
