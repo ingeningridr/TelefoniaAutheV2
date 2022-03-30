@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Date;
 
-@Entity(name = "\"Boomi_LostCalls\"")
+@Entity(name = "\"Telefonia_LamadasPerdidas\"")
 public class LostCalls implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -20,13 +20,13 @@ public class LostCalls implements Serializable {
     private String dIni;
     @Column(name = "lc_DFin")
     private String dFin;
-    @Column(name = "lc_Service")
+    @Column(name = "lc_Servicio")
     private String service;
-    @Column(name = "lc_StartName")
+    @Column(name = "lc_TiempoInicial")
     private String start_name;
-    @Column(name = "lc_ServiceName")
+    @Column(name = "lc_NombreServicio")
     private String service_name;
-    @Column(name = "lc_PhoneNumber")
+    @Column(name = "lc_NumeroTelefono")
     private double phone_number;
 
 

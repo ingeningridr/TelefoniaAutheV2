@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Date;
 
-@Entity(name = "\"Boomi_HandlingTime\"")
+@Entity(name = "\"Telefonia_TiempoLlamada\"")
 public class HandlingTime implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -21,21 +21,21 @@ public class HandlingTime implements Serializable {
     private String dIni;
     @Column(name = "ht_DFin")
     private String dFin;
-    @Column(name = "ht_Service")
+    @Column(name = "ht_Servicio")
     private String service;
-    @Column(name = "ht_StartTime")
+    @Column(name = "ht_TiempoInicial")
     private String start_time;
-    @Column(name = "ht_ServiceName")
+    @Column(name = "ht_NombreServicio")
     private String service_name;
-    @Column(name = "ht_NumCallsAnswered")
+    @Column(name = "ht_NumeroLlamadasContestadas")
     private double num_calls_answered;
-    @Column(name = "ht_HandlingTime")
+    @Column(name = "ht_TiempoLlamada")
     private String handling_time;
-    @Column(name = "ht_AverageHandlingTime")
+    @Column(name = "ht_PromedioTiempoLlamada")
     private String average_handling_time;
-    @Column(name = "ht_TalkTimeIn")
+    @Column(name = "ht_TiempoHablando")
     private String talk_time_in;
-    @Column(name = "ht_AverageTalkTimeIn")
+    @Column(name = "ht_PromedioTiempoHablando")
     private String average_talk_time_in;
 
     public HandlingTime(){

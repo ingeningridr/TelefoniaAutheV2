@@ -8,7 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.io.Serializable;
 
-@Entity(name = "\"Boomi_QueueTime\"")
+@Entity(name = "\"Telefonia_TiempoEnEspera\"")
 public class QueueTime implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -20,25 +20,25 @@ public class QueueTime implements Serializable {
     private String dIni;
     @Column(name = "qt_DFin")
     private String dFin;
-    @Column(name = "qt_Service")
+    @Column(name = "qt_Servicio")
     private String service;
-    @Column(name = "qt_StartTime")
+    @Column(name = "qt_TiempoInicial")
     private String start_time;
-    @Column(name = "qt_ServiceName")
+    @Column(name = "qt_NombreServicio")
     private String service_name;
-    @Column(name = "qt_NumCallsQueued")
+    @Column(name = "qt_NumeroLlamadasEncoladas")
     private double num_calls_queued;
-    @Column(name = "qt_TotalTimeQueued")
+    @Column(name = "qt_TotalTiempoEncolamiento")
     private String total_time_queued;
-    @Column(name = "qt_AverageTimeQueued")
+    @Column(name = "qt_PromedioTiempoEncolamiento")
     private String average_time_queued;
-    @Column(name = "qt_AbandonmentTimeQueued")
+    @Column(name = "qt_TiempoDeLlamadasEncoladas")
     private String abandonment_time_queued;
-    @Column(name = "qt_NumCallsQueuedAbandoned")
+    @Column(name = "qt_NumeroLlamadasEncoladasAbandonadas")
     private double num_calls_queued_abandoned;
-    @Column(name = "qt_AnswerTimeQueued")
+    @Column(name = "qt_RespuestaTiempoEncolamiento")
     private String answer_time_queued;
-    @Column(name = "qt_NumCallsQueuedAnswered")
+    @Column(name = "qt_NumeroLlamadasEncoladasContestadas")
     private double num_calls_queued_answered;
 
 

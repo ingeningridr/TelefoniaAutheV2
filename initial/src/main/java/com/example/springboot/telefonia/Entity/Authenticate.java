@@ -9,16 +9,16 @@ import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Date;
 
-@Entity(name = "\"Boomi_Authenticate\"")
+@Entity(name = "\"Telefonia_Autenticacion\"")
 public class Authenticate implements Serializable {
 
    private static final long serialVersionUID = 1L;
 
    @Id
    @GeneratedValue(strategy= javax.persistence.GenerationType.AUTO)
-   @Column(name = "a_IdAuthenticate")
+   @Column(name = "a_IdAutenticacion")
    private int idAuthenticate;
-   @Column(name = "a_KeyA")
+   @Column(name = "a_LlaveA")
    private String keyA;
    @Column(name = "a_Token")
    private String token;

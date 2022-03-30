@@ -9,26 +9,26 @@ import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Date;
 
-@Entity(name = "\"Boomi_Calls\"")
+@Entity(name = "\"Telefonia_Llamadas\"")
 public class Calls implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy= javax.persistence.GenerationType.AUTO)
-    @Column(name = "\"c_IdCalls\"")
+    @Column(name = "\"c_IdLlamadas\"")
     private int idCalls;
     @Column(name = "c_DIni")
     private String dIni;
     @Column(name = "c_DFin")
     private String dFin;
-    @Column(name = "c_Service")
+    @Column(name = "c_Servicio")
     private String service;
-    @Column(name = "c_StartTime")
+    @Column(name = "c_TiempoInicial")
     private String start_time;
-    @Column(name = "c_ServiceName")
+    @Column(name = "c_NombreServicio")
     private String service_name;
-    @Column(name = "c_PhoneNumber")
+    @Column(name = "c_NumeroTelefono")
     private double phone_number;
 
     public  Calls(){}

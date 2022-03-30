@@ -1,15 +1,14 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: qacomerssia-config
+  name: telefonia-config
   
   labels:
-    app: tcc
+    app: telefonia
 data:
-  QACOMERSSIA_APP_PROFILE: production
-  QACOMERSSIA_APP_PORT : '8080'
-  QACOMERSSIA_DB_HOST : 10.246.119.229
-  QACOMERSSIA_DB_NAME : tcc
-  QACOMERSSIA_DB_PORT : '1433'
-  QACOMERSSIA_DB_TIMEZONE : America/Bogota
-
+  TELEFONIA_APP_PROFILE: production
+  TELEFONIA_APP_PORT : '8080'
+  TELEFONIA_DB_HOST : assaabloy.clirlt2x1ee9.us-east-1.rds.amazonaws.com
+  TELEFONIA_DB_NAME : telefonia
+  TELEFONIA_DB_PORT : '1433'
+  TELEFONIA_DB_TIMEZONE : America/Bogota

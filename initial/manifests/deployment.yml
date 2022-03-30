@@ -1,68 +1,68 @@
 apiVersion : apps/v1
 kind: Deployment
 metadata:
-  name: qacomerssia 
+  name: telefonia 
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: qacomerssia
+      app: telefonia
   template:
     metadata:
       labels:
-        app: qacomerssia 
+        app: telefonia 
     spec:
       containers:
-        - name: qacomerssia 
-          image: assaabloy.azurecr.io/qacomerssia
+        - name: telefonia 
+          image: assaabloy.azurecr.io/telefonia
           ports:
           - containerPort: 8080
 
           env:
-            - name: QACOMERSSIA_APP_PROFILE
+            - name: TELEFONIA
               valueFrom:
                 configMapKeyRef:
-                  name: qacomerssia-config
-                  key: QACOMERSSIA_APP_PROFILE
+                  name: telefonia-config
+                  key: TELEFONIA_APP_PROFILE
 
-            - name: QACOMERSSIA_APP_PORT
+            - name: TELEFONIA_APP_PORT
               valueFrom:
                 configMapKeyRef:
-                  name: qacomerssia-config
-                  key: QACOMERSSIA_APP_PORT
+                  name: telefonia-config
+                  key: TELEFONIA_APP_PORT
 
-            - name: QACOMERSSIA_DB_HOST
+            - name: TELEFONIA_DB_HOST
               valueFrom:
                 configMapKeyRef:
-                  name: qacomerssia-config
-                  key: QACOMERSSIA_DB_HOST
+                  name: telefonia-config
+                  key: TELEFONIA_DB_HOST
 
-            - name: QACOMERSSIA_DB_NAME
+            - name: TELEFONIA_DB_NAME
               valueFrom:
                 configMapKeyRef:
-                  name: qacomerssia-config
-                  key: QACOMERSSIA_DB_NAME
+                  name: telefonia-config
+                  key: TELEFONIA_DB_NAME
 
-            - name: QACOMERSSIA_DB_PORT
+            - name: TELEFONIA_DB_PORT
               valueFrom:
                 configMapKeyRef:
-                  name: qacomerssia-config
-                  key: QACOMERSSIA_DB_PORT
+                  name: telefonia-config
+                  key: TELEFONIA_DB_PORT
 
-            - name: QACOMERSSIA_DB_TIMEZONE
+            - name: TELEFONIA_DB_TIMEZONE
               valueFrom:
                 configMapKeyRef:
-                  name: qacomerssia-config
-                  key: QACOMERSSIA_DB_TIMEZONE
+                  name: telefonia-config
+                  key: TELEFONIA_DB_TIMEZONE
 
-            - name: QACOMERSSIA_DB_PASSWORD
+            - name: TELEFONIA_DB_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: qacomerssia-secret
-                  key: QACOMERSSIA_DB_PASSWORD
+                  name: telefonia-secret
+                  key: TELEFONIA_DB_PASSWORD
 
-            - name: QACOMERSSIA_DB_USERNAME
+            - name: TELEFONIA_DB_USERNAME
               valueFrom:
                 secretKeyRef:
-                  name: qacomerssia-secret
-                  key: QACOMERSSIA_DB_USERNAME
+                  name: telefonia-secret
+                  key: TELEFONIA_DB_USERNAME

@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Date;
 
-@Entity(name = "\"Boomi_Survey\"")
+@Entity(name = "\"Telefonia_Encuestas\"")
 public class Survey implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -21,13 +21,13 @@ public class Survey implements Serializable {
     private String dIni;
     @Column(name = "s_DFin")
     private String dFin;
-    @Column(name = "s_Service")
+    @Column(name = "s_Servicio")
     private String service;
-    @Column(name = "s_StartName")
+    @Column(name = "s_NombreInicial")
     private String start_name;
-    @Column(name = "s_ServiceName")
+    @Column(name = "s_NombreServicio")
     private String service_name;
-    @Column(name = "s_PhoneNumber")
+    @Column(name = "s_NumeroTelefono")
     private double phone_number;
     @Column(name = "s_Fcr")
     private String fcr;

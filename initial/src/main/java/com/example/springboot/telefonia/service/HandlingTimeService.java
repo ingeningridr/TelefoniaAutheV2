@@ -94,9 +94,10 @@ public class HandlingTimeService {
         Map<String, String> params = new HashMap<>();
         params.put("fIni", fini);
         params.put("fFin", ffin);
+        //params.put("servicio", "servicio");
 
         RestTemplate template = new RestTemplate();
-        String url = Constantes.URL;
+        String url = Constantes.URL_HANDLINGTIME;
 
         HttpEntity<Void> requestEntity = new HttpEntity<>(headers);
 

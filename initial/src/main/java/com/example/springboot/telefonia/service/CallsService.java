@@ -33,6 +33,9 @@ public class CallsService  {
 
     org.slf4j.Logger logger = LoggerFactory.getLogger(CallsService.class); 
 
+    /**
+     * 
+     */
     public JSONArray sendCalls(String fini, String ffin) throws Exception {
         
 
@@ -59,6 +62,9 @@ public class CallsService  {
                     
     }
 
+    /**
+     * 
+     */
     public String getCallsFromContainer(String fini, String ffin) throws Exception {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
@@ -66,9 +72,10 @@ public class CallsService  {
         Map<String, String> params = new HashMap<>();
         params.put("fIni", fini);
         params.put("fFin", ffin);
+        //params.put("servicio", "servicio");
 
         RestTemplate template = new RestTemplate();
-        String url = Constantes.URL;
+        String url = Constantes.URL_CALLS;
 
         HttpEntity<Void> requestEntity = new HttpEntity<>(headers);
 
@@ -77,6 +84,12 @@ public class CallsService  {
     }
 
 
+    /**
+     * 
+     * @param fini
+     * @param ffin
+     * @return
+     */
     public String dummyCalls(String fini, String ffin){
         return "["+
         ""+
